@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ishmael Santiago — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --tan:        #93917C;
+  --tan-light:  #b5b3a0;
+  --tan-pale:   #d6d4c5;
+  --tan-wash:   #edebd9;
+  --tan-paper:  #f5f3e8;
+  --tan-cream:  #faf9f3;
+  --forest:     #004225;
+  --forest-mid: #003a1f;
+  --forest-deep:#002a16;
+  --forest-text:#e8f5ee;
+  --forest-dim: #c6e8d4;
+  --ink:        #1c1b15;
+  --ink2:       #2e2d25;
+  --ink-mid:    #4a4940;
+  --ink-light:  #7a7869;
+  --rule:       #cbc9b5;
+  --rule-light: #dedad0;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+
+body {
+  font-family: 'DM Mono', monospace;
+  background: var(--tan-paper);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* subtle paper grain */
+body::after {
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity:0.03;
+  pointer-events:none;
+  z-index:9999;
+}
+
+/* ─── NAV ─── */
+nav {
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:1000;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:1rem 3rem;
+  background:rgba(245,243,232,0.93);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--rule);
+}
+.nav-logo {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.05rem;
+  font-weight:500;
+  letter-spacing:0.06em;
+  color:var(--ink);
+}
+.nav-logo em {
+  font-style:italic;
+  font-weight:300;
+  color:var(--tan);
+}
+.nav-links{display:flex;gap:2.5rem;list-style:none;}
+.nav-links a {
+  font-size:0.6rem;
+  color:var(--tan);
+  text-decoration:none;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  transition:color 0.2s;
+}
+.nav-links a:hover{color:var(--forest);}
+.nav-toggle{
+  display:none;
+  border:none;background:transparent;
+  cursor:pointer;flex-direction:column;gap:5px;padding:4px;
+}
+.nav-toggle span{
+  display:block;width:22px;height:1px;
+  background:var(--ink);
+  transition:transform 0.2s,opacity 0.2s;
+}
+nav.open .nav-toggle span:nth-child(1){transform:translateY(6px) rotate(45deg);}
+nav.open .nav-toggle span:nth-child(2){opacity:0;}
+nav.open .nav-toggle span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
+
+/* ─── HERO ─── */
+#hero {
+  min-height:100vh;
+  padding-top:62px;
+  background:var(--tan-paper);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  overflow:hidden;
+  position:relative;
+}
+
+.hero-top {
+  padding:3.5rem 3rem 0;
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:2rem;
+}
+
+.hero-left{flex:1;}
+
+.hero-eyebrow {
+  display:flex;
+  align-items:center;
+  gap:0.8rem;
+  margin-bottom:1.8rem;
+}
+.eyebrow-line{width:32px;height:1px;background:var(--tan);}
+.eyebrow-text{
+  font-size:0.6rem;
+  color:var(--tan);
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+}
+
+.hero-name {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(4.5rem,8.5vw,9.5rem);
+  font-weight:300;
+  line-height:0.88;
+  letter-spacing:-0.025em;
+}
+.hero-name .row{display:flex;align-items:baseline;gap:0.3em;}
+.hero-name em{font-style:italic;color:var(--tan);}
+
+/* photo beside name */
+.hero-photo-wrap {
+  flex-shrink:0;
+  width:clamp(160px,18vw,240px);
+  margin-top:0.5rem;
+  position:relative;
+}
+.hero-photo-frame {
+  position:relative;
+  width:100%;
+}
+.hero-photo-frame::before {
+  content:'';
+  position:absolute;
+  top:-8px;left:-8px;right:8px;bottom:8px;
+  border:1px solid var(--tan-pale);
+  z-index:0;
+}
+.hero-photo-frame img {
+  display:block;
+  width:100%;
+  aspect-ratio:3/4;
+  object-fit:cover;
+  object-position:top center;
+  position:relative;
+  z-index:1;
+  filter:sepia(8%) contrast(1.02);
+}
+.hero-photo-label {
+  font-size:0.55rem;
+  color:var(--tan-light);
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  margin-top:0.6rem;
+  text-align:right;
+}
+
+/* hero middle strip — forest block */
+.hero-forest-strip {
+  background:var(--forest);
+  padding:1.5rem 3rem;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:2rem;
+  margin-top:2.5rem;
+}
+.hero-role {
+  font-size:0.65rem;
+  color:var(--forest-dim);
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+}
+.hero-stats{display:flex;gap:3rem;}
+.hero-stat .val {
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.2rem;
+  font-weight:400;
+  color:var(--tan-wash);
+  line-height:1;
+  display:block;
+}
+.hero-stat .lbl {
+  font-size:0.55rem;
+  color:var(--forest-dim);
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  display:block;
+  margin-top:0.15rem;
+}
+
+/* hero bottom */
+.hero-bottom {
+  padding:2rem 3rem 3.5rem;
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:2rem;
+  border-top:1px solid var(--rule);
+  flex-wrap:wrap;
+}
+.hero-bio {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.1rem,1.8vw,1.45rem);
+  font-weight:300;
+  font-style:italic;
+  color:var(--ink-mid);
+  max-width:500px;
+  line-height:1.65;
+}
+.hero-ctas{display:flex;gap:0.8rem;flex-wrap:wrap;align-items:center;}
+.btn{
+  font-family:'DM Mono',monospace;
+  font-size:0.6rem;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  padding:0.75rem 1.8rem;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  gap:0.4rem;
+  transition:all 0.2s;
+  cursor:pointer;
+}
+.btn-forest{background:var(--forest);color:var(--forest-text);border:1px solid var(--forest);}
+.btn-forest:hover{background:var(--forest-mid);}
+.btn-ghost{background:transparent;color:var(--tan);border:1px solid var(--rule);}
+.btn-ghost:hover{border-color:var(--tan);color:var(--ink);}
+
+/* ─── SECTION BASE ─── */
+section{padding:5.5rem 3rem;border-top:1px solid var(--rule);}
+
+.sec-header{
+  display:flex;align-items:baseline;gap:1rem;
+  margin-bottom:4rem;
+}
+.sec-num{font-size:0.58rem;color:var(--tan-light);letter-spacing:0.15em;}
+.sec-line{flex:1;height:1px;background:var(--rule-light);}
+.sec-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,3.5vw,3rem);
+  font-weight:300;letter-spacing:-0.01em;
+}
+.sec-title em{font-style:italic;color:var(--tan);}
+
+/* ─── ABOUT ─── */
+#about{background:var(--tan-paper);}
+
+.about-statement{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.5rem,2.8vw,2.1rem);
+  font-weight:300;
+  line-height:1.55;
+  color:var(--ink2);
+  max-width:880px;
+  border-left:2px solid var(--tan);
+  padding-left:2rem;
+  margin-bottom:4rem;
+}
+.about-statement em{font-style:italic;color:var(--tan-light);
+}
+
+/* forest block inside about */
+.about-forest {
+  background:var(--forest);
+  padding:3rem;
+  margin-bottom:3rem;
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:3rem;
+}
+.about-forest-label{
+  font-size:0.58rem;
+  color:var(--forest-dim);
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  margin-bottom:1.5rem;
+}
+.progress-row{margin-bottom:1.1rem;}
+.progress-label{
+  display:flex;justify-content:space-between;
+  font-size:0.6rem;color:var(--forest-dim);
+  letter-spacing:0.06em;margin-bottom:0.4rem;
+}
+.progress-label span{color:var(--tan-pale);}
+.progress-bar{height:1px;background:rgba(255,255,255,0.12);position:relative;}
+.progress-fill{
+  height:100%;background:var(--tan);
+  position:relative;
+}
+.progress-fill::after{
+  content:'';position:absolute;right:0;top:-2.5px;
+  width:5px;height:5px;border-radius:50%;
+  background:var(--tan);
+}
+.skills-right{}
+.skill-group{margin-bottom:1.6rem;}
+.skill-group-label{
+  font-size:0.55rem;color:var(--forest-dim);
+  letter-spacing:0.16em;text-transform:uppercase;
+  margin-bottom:0.6rem;
+}
+.skill-tags{display:flex;flex-wrap:wrap;gap:0.35rem;}
+.tag{
+  font-size:0.58rem;
+  padding:0.2rem 0.55rem;
+  letter-spacing:0.04em;
+}
+.tag-forest{border:1px solid rgba(255,255,255,0.15);color:var(--forest-dim);background:rgba(255,255,255,0.05);}
+.tag-tan{border:1px solid var(--tan);color:var(--tan-wash);background:transparent;}
+.tag-outline{border:1px solid var(--rule);color:var(--ink-mid);background:transparent;}
+
+/* education strip */
+.edu-strip{
+  display:flex;align-items:center;gap:2rem;
+  padding:1.5rem 0;border-top:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+}
+.edu-label{font-size:0.58rem;color:var(--tan-light);letter-spacing:0.14em;text-transform:uppercase;width:80px;flex-shrink:0;}
+.edu-val{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:400;color:var(--ink2);line-height:1.5;}
+
+/* ─── PROJECTS ─── */
+#projects{background:var(--tan-wash);}
+.projects-list{display:flex;flex-direction:column;gap:1px;}
+
+.project-row{
+  display:grid;
+  grid-template-columns:280px 1fr;
+  background:var(--tan-paper);
+  border:1px solid var(--rule);
+  transition:border-color 0.25s;
+  position:relative;
+  overflow:hidden;
+}
+.project-row::before{
+  content:'';
+  position:absolute;
+  left:0;top:0;bottom:0;width:2px;
+  background:var(--forest);
+  transform:scaleY(0);
+  transition:transform 0.3s;
+  transform-origin:bottom;
+}
+.project-row:hover{border-color:var(--tan);}
+.project-row:hover::before{transform:scaleY(1);}
+.project-row:hover .proj-img{transform:scale(1.03);}
+
+.proj-img-wrap{
+  overflow:hidden;
+  border-right:1px solid var(--rule);
+}
+.proj-img{
+  width:100%;height:100%;
+  object-fit:cover;display:block;
+  transition:transform 0.4s ease;
+  filter:sepia(5%);
+}
+
+.proj-info{
+  padding:2rem 2.5rem;
+  display:flex;flex-direction:column;
+  justify-content:space-between;gap:1rem;
+}
+.proj-num{font-size:0.55rem;color:var(--tan-light);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.5rem;}
+.proj-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.3rem,2vw,1.8rem);
+  font-weight:400;color:var(--ink);
+  margin-bottom:0.7rem;line-height:1.2;
+}
+.proj-tags{display:flex;flex-wrap:wrap;gap:0.3rem;margin-bottom:0.8rem;}
+.proj-desc{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1rem;font-weight:300;
+  color:var(--ink-mid);line-height:1.8;
+}
+.proj-link{
+  font-size:0.58rem;color:var(--forest);
+  text-decoration:none;letter-spacing:0.12em;
+  text-transform:uppercase;
+  border:1px solid var(--forest);
+  padding:0.4rem 1rem;
+  display:inline-flex;align-items:center;gap:0.35rem;
+  width:fit-content;transition:background 0.15s,color 0.15s;
+  margin-top:0.5rem;
+}
+.proj-link:hover{background:var(--forest);color:var(--forest-text);}
+
+/* ─── REEL ─── */
+#reel{background:var(--forest);border-top:none;}
+#reel .sec-title{color:var(--tan-wash);}
+#reel .sec-title em{color:var(--tan);}
+#reel .sec-num{color:rgba(147,145,124,0.5);}
+#reel .sec-line{background:rgba(255,255,255,0.08);}
+
+.reel-card{
+  display:flex;align-items:center;justify-content:space-between;gap:2rem;
+  padding:2.5rem 3rem;
+  border:1px solid rgba(255,255,255,0.1);
+  text-decoration:none;color:inherit;
+  transition:border-color 0.25s,background 0.25s;
+  max-width:860px;
+}
+.reel-card:hover{border-color:var(--tan);background:rgba(255,255,255,0.03);}
+.reel-eyebrow{
+  font-size:0.58rem;color:var(--tan);
+  letter-spacing:0.18em;text-transform:uppercase;
+  display:flex;align-items:center;gap:0.5rem;margin-bottom:0.75rem;
+}
+.reel-dot{width:6px;height:6px;border-radius:50%;background:var(--tan-pale);animation:pulse 2s ease infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+.reel-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.6rem,2.8vw,2.2rem);
+  font-weight:300;color:var(--tan-wash);
+  line-height:1.2;margin-bottom:0.6rem;
+}
+.reel-desc{font-size:0.72rem;color:var(--forest-dim);line-height:1.9;}
+.reel-icon{
+  width:72px;height:72px;
+  border:1px solid rgba(255,255,255,0.12);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;color:var(--tan);
+  transition:background 0.2s,border-color 0.2s;
+}
+.reel-card:hover .reel-icon{background:var(--tan);color:var(--forest);}
+.reel-icon svg{width:28px;height:28px;}
+
+/* ─── CERTIFICATIONS ─── */
+#certifications{background:var(--tan-paper);}
+.cert-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:0;border:1px solid var(--rule);
+}
+.cert-card{
+  background:transparent;padding:2.5rem 2rem;
+  text-decoration:none;
+  display:flex;flex-direction:column;gap:0.9rem;
+  border-right:1px solid var(--rule);
+  transition:background 0.2s;position:relative;overflow:hidden;
+}
+.cert-card:last-child{border-right:none;}
+.cert-card::before{
+  content:'';position:absolute;
+  bottom:0;left:0;right:0;height:2px;
+  background:var(--forest);
+  transform:scaleX(0);transition:transform 0.3s;transform-origin:left;
+}
+.cert-card:hover{background:var(--tan-wash);}
+.cert-card:hover::before{transform:scaleX(1);}
+.cert-id{font-size:0.55rem;color:var(--tan-light);letter-spacing:0.12em;}
+.cert-icon-wrap{
+  width:38px;height:38px;
+  border:1px solid var(--rule);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--forest);
+}
+.cert-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.05rem;font-weight:400;
+  color:var(--ink);line-height:1.35;
+}
+.cert-issuer{font-size:0.55rem;color:var(--tan-light);letter-spacing:0.1em;text-transform:uppercase;}
+.cert-badge{
+  font-size:0.58rem;color:var(--forest);
+  letter-spacing:0.1em;text-transform:uppercase;
+  margin-top:auto;display:flex;align-items:center;gap:0.3rem;
+}
+.cert-badge::before{content:'→';}
+
+/* ─── CONNECT ─── */
+#connect{background:var(--tan-wash);}
+.connect-layout{
+  display:grid;grid-template-columns:1.1fr 1fr;
+  gap:5rem;align-items:start;
+}
+.connect-lead{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.2rem,1.8vw,1.6rem);
+  font-weight:300;font-style:italic;
+  color:var(--ink2);line-height:1.65;margin-bottom:2.5rem;
+}
+.connect-item{
+  display:flex;align-items:center;gap:1.5rem;
+  padding:1rem 0;border-bottom:1px solid var(--rule-light);
+  text-decoration:none;transition:all 0.2s;
+}
+.connect-item:first-of-type{border-top:1px solid var(--rule-light);}
+.connect-item:hover .ci-val{color:var(--forest);}
+.connect-item:hover .ci-arrow{transform:translateX(4px);}
+.ci-key{font-size:0.57rem;color:var(--tan);letter-spacing:0.12em;text-transform:uppercase;width:75px;flex-shrink:0;}
+.ci-val{font-size:0.75rem;color:var(--ink-mid);flex:1;transition:color 0.2s;}
+.ci-arrow{color:var(--tan-light);transition:transform 0.2s;font-size:0.75rem;}
+
+/* terminal — forest bg */
+.terminal-block{
+  background:var(--forest-deep);
+  padding:2rem;
+  font-size:0.67rem;line-height:2.2;
+  color:var(--tan-wash);
+}
+.tb-line{display:flex;gap:0.5rem;}
+.tb-prompt{color:var(--tan);flex-shrink:0;}
+.tb-cmd{color:var(--tan-cream);}
+.tb-out{color:var(--forest-dim);padding-left:1rem;}
+.tb-cur{
+  display:inline-block;width:7px;height:13px;
+  background:var(--tan);
+  animation:blink 1s step-end infinite;
+  vertical-align:middle;margin-left:2px;
+}
+@keyframes blink{50%{opacity:0;}}
+
+/* ─── FOOTER ─── */
+footer{
+  background:var(--forest);
+  border-top:none;
+  padding:1.4rem 3rem;
+  display:flex;align-items:center;justify-content:space-between;
+}
+footer p{font-size:0.58rem;color:var(--forest-dim);letter-spacing:0.1em;}
+footer .accent{color:var(--tan);}
+
+/* ─── REVEAL ─── */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity 0.6s ease,transform 0.6s ease;}
+.reveal.visible{opacity:1;transform:none;}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem;}
+  .nav-links{display:none;}
+  .nav-toggle{display:flex;}
+  nav.open .nav-links{
+    display:flex;flex-direction:column;gap:0;
+    position:absolute;top:100%;right:1.5rem;
+    background:var(--tan-cream);border:1px solid var(--rule);
+    padding:0.5rem 0;min-width:160px;
+  }
+  nav.open .nav-links a{padding:0.75rem 1.25rem;display:block;border-bottom:1px solid var(--rule-light);}
+  nav.open .nav-links a:last-child{border-bottom:none;}
+  #hero{padding-top:58px;}
+  .hero-top{flex-direction:column;padding:2.5rem 1.5rem 0;}
+  .hero-photo-wrap{width:140px;align-self:flex-end;}
+  .hero-name{font-size:clamp(3rem,10vw,5rem);}
+  .hero-forest-strip{padding:1.2rem 1.5rem;flex-wrap:wrap;}
+  .hero-stats{gap:1.5rem;}
+  .hero-bottom{padding:1.5rem 1.5rem 3rem;flex-direction:column;align-items:flex-start;}
+  section{padding:3.5rem 1.5rem;}
+  .about-forest{padding:2rem 1.5rem;grid-template-columns:1fr;}
+  .project-row{grid-template-columns:1fr;}
+  .proj-img-wrap{height:200px;border-right:none;border-bottom:1px solid var(--rule);}
+  .cert-grid{grid-template-columns:1fr;}
+  .cert-card{border-right:none;border-bottom:1px solid var(--rule);}
+  .cert-card:last-child{border-bottom:none;}
+  .connect-layout{grid-template-columns:1fr;gap:2.5rem;}
+  footer{padding:1rem 1.5rem;flex-direction:column;gap:0.5rem;text-align:center;}
+  .reel-card{padding:1.5rem;}
+  .about-statement{padding-left:1rem;}
+  .edu-strip{flex-direction:column;align-items:flex-start;gap:0.4rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="nav-logo">Ishmael <em>Santiago</em></div>
+  <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#reel">Reel</a></li>
+    <li><a href="#certifications">Certs</a></li>
+    <li><a href="#connect">Connect</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-top">
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <div class="eyebrow-line"></div>
+        <span class="eyebrow-text">PLV · BS Information Technology · 3rd Year · Valenzuela City, PH · 2026</span>
+      </div>
+      <h1 class="hero-name">
+        <span class="row">Ishmael</span>
+        <span class="row"><em>Luis C.</em></span>
+        <span class="row">Santiago</span>
+      </h1>
+    </div>
+    <div class="hero-photo-wrap">
+      <div class="hero-photo-frame">
+        <img src="ish.jpg" alt="Ishmael Santiago" />
+      </div>
+      <p class="hero-photo-label">Ishmael L.C. Santiago</p>
+    </div>
+  </div>
+
+  <div class="hero-forest-strip">
+    <div class="hero-role">IT Student · Project Manager · Strategic Planner</div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="val">6+</span>
+        <span class="lbl">Projects</span>
+      </div>
+      <div class="hero-stat">
+        <span class="val">3</span>
+        <span class="lbl">Cisco Certs</span>
+      </div>
+      <div class="hero-stat">
+        <span class="val">2</span>
+        <span class="lbl">Lead Roles</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-bottom">
+    <p class="hero-bio">Business-minded 3rd-year IT student engaged in technology, project leadership, and strategic planning. Builds experience in financial literacy, sales, and marketing while contributing to digital solutions that encourage efficiency, innovation, and measurable progress.</p>
+    <div class="hero-ctas">
+      <a href="#projects" class="btn btn-forest">View Projects →</a>
+      <a href="https://www.linkedin.com/in/ishmael-santiago-b09516411/" target="_blank" class="btn btn-ghost">LinkedIn ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="sec-header reveal">
+    <span class="sec-num">01</span>
+    <div class="sec-line"></div>
+    <h2 class="sec-title">About <em>&amp;</em> Skills</h2>
+  </div>
+
+  <p class="about-statement reveal">
+    3rd-year IT student with a sharp foundation in <em>business strategy and financial literacy</em> — translating data into decisions, markets into opportunities, and plans into measurable growth. I bridge the gap between technology and business by applying strategic planning, financial analysis, and revenue-focused thinking to every project I lead.
+  </p>
+
+  <!-- forest block: proficiency + skills -->
+  <div class="about-forest reveal">
+    <div>
+      <div class="about-forest-label">Proficiency</div>
+      <div class="progress-row">
+        <div class="progress-label">Strategic Thinking <span>92%</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:92%"></div></div>
+      </div>
+      <div class="progress-row">
+        <div class="progress-label">Business Process Improvement <span>88%</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:88%"></div></div>
+      </div>
+      <div class="progress-row">
+        <div class="progress-label">Financial Analysis <span>84%</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:84%"></div></div>
+      </div>
+      <div class="progress-row">
+        <div class="progress-label">Marketing Strategy <span>82%</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:82%"></div></div>
+      </div>
+      <div class="progress-row">
+        <div class="progress-label">New Business Development <span>78%</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:78%"></div></div>
+      </div>
+    </div>
+    <div class="skills-right">
+      <div class="skill-group">
+        <div class="skill-group-label">Strategy</div>
+        <div class="skill-tags">
+          <span class="tag tag-tan">Strategic Planning</span>
+          <span class="tag tag-tan">IT Strategy</span>
+          <span class="tag tag-tan">Strategic Thinking</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Business &amp; Growth</div>
+        <div class="skill-tags">
+          <span class="tag tag-forest">Business Process Improvement</span>
+          <span class="tag tag-forest">New Business Development</span>
+          <span class="tag tag-forest">Business Sales</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Finance &amp; Marketing</div>
+        <div class="skill-tags">
+          <span class="tag tag-forest">Financial Analysis</span>
+          <span class="tag tag-forest">Marketing Strategy</span>
+          <span class="tag tag-forest">Marketing</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="edu-strip reveal">
+    <span class="edu-label">Education</span>
+    <span class="edu-val">BS Information Technology &nbsp;—&nbsp; Pamantasan ng Lungsod ng Valenzuela &nbsp;—&nbsp; 2023–Present</span>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="sec-header reveal">
+    <span class="sec-num">02</span>
+    <div class="sec-line"></div>
+    <h2 class="sec-title">Project <em>Registry</em></h2>
+  </div>
+  <div class="projects-list">
+
+    <div class="project-row reveal">
+      <div class="proj-img-wrap">
+        <img src="idetect.png" alt="iDetect" class="proj-img" />
+      </div>
+      <div class="proj-info">
+        <div>
+          <div class="proj-num">Project 001 · Technical Lead · 2026</div>
+          <h3 class="proj-name">iDetect — OCR-Based ID Verification</h3>
+          <div class="proj-tags">
+            <span class="tag tag-outline" style="border-color:var(--forest);color:var(--forest);">Tesseract OCR</span>
+            <span class="tag tag-outline" style="border-color:var(--forest);color:var(--forest);">OpenCV</span>
+            <span class="tag tag-outline" style="border-color:var(--tan);color:var(--tan);">Civic Tech</span>
+            <span class="tag tag-outline">Fuzzy Matching</span>
+          </div>
+          <p class="proj-desc">Multi-portal web application detecting fraudulent Senior Citizen &amp; PWD IDs for Valenzuela City Government. Conducted stakeholder interviews with OSCA and PDAO offices.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-row reveal">
+      <div class="proj-img-wrap">
+        <img src="arta.png" alt="ARTA Survey System" class="proj-img" />
+      </div>
+      <div class="proj-info">
+        <div>
+          <div class="proj-num">Project 002 · Group Project · 2025</div>
+          <h3 class="proj-name">ARTA — Customer Satisfaction Survey System</h3>
+          <div class="proj-tags">
+            <span class="tag tag-outline" style="border-color:var(--forest);color:var(--forest);">Flutter</span>
+            <span class="tag tag-outline" style="border-color:var(--forest);color:var(--forest);">Dart</span>
+            <span class="tag tag-outline" style="border-color:var(--tan);color:var(--tan);">Supabase</span>
+            <span class="tag tag-outline">Gov Civic</span>
+          </div>
+          <p class="proj-desc">Web and mobile app automating ARTA-compliant satisfaction surveys for Valenzuela City Government, streamlining feedback collection and data-driven decisions.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-row reveal">
+      <div class="proj-img-wrap">
+        <img src="mataya.png" alt="Mataya-Taya" class="proj-img" />
+      </div>
+      <div class="proj-info">
+        <div>
+          <div class="proj-num">Project 003 · Project Manager · 2025</div>
+          <h3 class="proj-name">Mataya-Taya Spin-Off — Endless Runner</h3>
+          <div class="proj-tags">
+            <span class="tag tag-outline" style="border-color:var(--forest);color:var(--forest);">Game Dev</span>
+            <span class="tag tag-outline">Pixel Art</span>
+            <span class="tag tag-outline">Bagani Studios</span>
+            <span class="tag tag-outline" style="border-color:var(--tan);color:var(--tan);">Cross-Platform</span>
+          </div>
+          <p class="proj-desc">Nostalgic Filipino pixel-art endless runner inspired by the classic street game Taya-Taya. Oversaw cross-platform development for PC and mobile.</p>
+        </div>
+        <a href="https://maeluis.itch.io/mataya-taya-spinoff" target="_blank" class="proj-link">Play on itch.io</a>
+      </div>
+    </div>
+
+    <div class="project-row reveal">
+      <div class="proj-img-wrap">
+        <img src="TST.png" alt="The Smile I Didn't Mean to Show" class="proj-img" />
+      </div>
+      <div class="proj-info">
+        <div>
+          <div class="proj-num">Project 004 · Project Manager · 2025</div>
+          <h3 class="proj-name">The Smile I Didn't Mean to Show</h3>
+          <div class="proj-tags">
+            <span class="tag tag-outline" style="border-color:var(--forest);color:var(--forest);">Visual Novel</span>
+            <span class="tag tag-outline">Story Game</span>
+            <span class="tag tag-outline">Bagani Studios</span>
+          </div>
+          <p class="proj-desc">Narrative-driven immersive story game. Led project management for production pipeline and team coordination under Bagani Studios.</p>
+        </div>
+        <a href="https://maeluis.itch.io/tsidmts" target="_blank" class="proj-link">Play on itch.io</a>
+      </div>
+    </div>
+
+    <div class="project-row reveal">
+      <div class="proj-img-wrap">
+        <img src="web.png" alt="Personal Portfolio" class="proj-img" />
+      </div>
+      <div class="proj-info">
+        <div>
+          <div class="proj-num">Project 005 · Individual · 2025</div>
+          <h3 class="proj-name">Personal Portfolio Website</h3>
+          <div class="proj-tags">
+            <span class="tag tag-outline" style="border-color:var(--forest);color:var(--forest);">HTML</span>
+            <span class="tag tag-outline" style="border-color:var(--forest);color:var(--forest);">CSS</span>
+            <span class="tag tag-outline" style="border-color:var(--forest);color:var(--forest);">JavaScript</span>
+          </div>
+          <p class="proj-desc">Self-designed and built personal portfolio site showcasing work history and projects.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-row reveal">
+      <div class="proj-img-wrap">
+        <img src="maricopa.png" alt="Maricopa Restaurant" class="proj-img" />
+      </div>
+      <div class="proj-info">
+        <div>
+          <div class="proj-num">Project 006 · Pair Project · 2025</div>
+          <h3 class="proj-name">Maricopa Restaurant Website</h3>
+          <div class="proj-tags">
+            <span class="tag tag-outline" style="border-color:var(--forest);color:var(--forest);">HTML</span>
+            <span class="tag tag-outline" style="border-color:var(--forest);color:var(--forest);">CSS</span>
+            <span class="tag tag-outline">Web Dev</span>
+          </div>
+          <p class="proj-desc">Restaurant website featuring menus, business information, and dining highlights for Maricopa Restaurant.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- REEL -->
+<section id="reel">
+  <div class="sec-header reveal">
+    <span class="sec-num">03</span>
+    <div class="sec-line"></div>
+    <h2 class="sec-title">Demo <em>Reel</em></h2>
+  </div>
+  <div class="reveal">
+    <a class="reel-card" href="https://www.youtube.com/watch?v=p4f3US5QSdE" target="_blank" rel="noopener noreferrer">
+      <div>
+        <div class="reel-eyebrow">
+          <div class="reel-dot"></div>
+          Live · ishmael_santiago_demo_reel.mp4
+        </div>
+        <h3 class="reel-title">Watch the demo reel on YouTube</h3>
+        <p class="reel-desc">Click to open the portfolio demo reel directly on YouTube.</p>
+      </div>
+      <div class="reel-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 8l6 4-6 4V8z"/><rect x="2" y="4" width="20" height="16" rx="4"/></svg>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="sec-header reveal">
+    <span class="sec-num">04</span>
+    <div class="sec-line"></div>
+    <h2 class="sec-title">Cert <em>Registry</em></h2>
+  </div>
+  <div class="cert-grid reveal">
+    <a class="cert-card" href="https://www.credly.com/badges/0e059dd4-f393-4c5e-9d4f-d2d832fd90d0" target="_blank">
+      <div class="cert-id">Cert 001 · May 07, 2025</div>
+      <div class="cert-icon-wrap">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
+      </div>
+      <div class="cert-name">Networking Basics</div>
+      <div class="cert-issuer">Cisco Networking Academy</div>
+      <div class="cert-badge">View Credly Badge</div>
+    </a>
+    <a class="cert-card" href="https://www.credly.com/badges/89b68966-ad6f-4f63-848b-6aed8388768a" target="_blank">
+      <div class="cert-id">Cert 002 · May 04, 2025</div>
+      <div class="cert-icon-wrap">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      </div>
+      <div class="cert-name">Network Addressing &amp; Basic Troubleshooting</div>
+      <div class="cert-issuer">Cisco Networking Academy</div>
+      <div class="cert-badge">View Credly Badge</div>
+    </a>
+    <a class="cert-card" href="https://www.credly.com/badges/21cfe729-9ff0-487d-a392-5c1f85508fe6" target="_blank">
+      <div class="cert-id">Cert 003 · May 05, 2025</div>
+      <div class="cert-icon-wrap">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <div class="cert-name">Networking Devices &amp; Initial Configuration</div>
+      <div class="cert-issuer">Cisco Networking Academy</div>
+      <div class="cert-badge">View Credly Badge</div>
+    </a>
+  </div>
+</section>
+
+<!-- CONNECT -->
+<section id="connect">
+  <div class="sec-header reveal">
+    <span class="sec-num">05</span>
+    <div class="sec-line"></div>
+    <h2 class="sec-title">Connect <em>&amp;</em> Reach</h2>
+  </div>
+  <div class="connect-layout">
+    <div class="reveal">
+      <p class="connect-lead">Open to internships, collaborations, and project opportunities. Reach out through any channel below.</p>
+      <a href="https://www.linkedin.com/in/ishmael-santiago-b09516411/" target="_blank" class="connect-item">
+        <span class="ci-key">LinkedIn</span>
+        <span class="ci-val">ishmael-santiago-b09516411</span>
+        <span class="ci-arrow">→</span>
+      </a>
+      <a href="mailto:3ilcs252005@gmail.com" class="connect-item">
+        <span class="ci-key">Email</span>
+        <span class="ci-val">3ilcs252005@gmail.com</span>
+        <span class="ci-arrow">→</span>
+      </a>
+      <a href="tel:09265510920" class="connect-item">
+        <span class="ci-key">Phone</span>
+        <span class="ci-val">0926 551 0920</span>
+        <span class="ci-arrow">→</span>
+      </a>
+      <a href="https://maeluis.itch.io" target="_blank" class="connect-item">
+        <span class="ci-key">itch.io</span>
+        <span class="ci-val">maeluis.itch.io</span>
+        <span class="ci-arrow">→</span>
+      </a>
+    </div>
+    <div class="terminal-block reveal">
+      <div class="tb-line"><span class="tb-prompt">~/ishmael $</span><span class="tb-cmd">&nbsp;whoami</span></div>
+      <div class="tb-line"><span class="tb-out">ishmael_santiago · IT_student · project_manager</span></div>
+      <div class="tb-line" style="margin-top:0.3rem;"><span class="tb-prompt">~/ishmael $</span><span class="tb-cmd">&nbsp;cat location.txt</span></div>
+      <div class="tb-line"><span class="tb-out">Valenzuela City, PH · PLV BSIT 2026</span></div>
+      <div class="tb-line" style="margin-top:0.3rem;"><span class="tb-prompt">~/ishmael $</span><span class="tb-cmd">&nbsp;ls projects/</span></div>
+      <div class="tb-line"><span class="tb-out">iDetect/ ARTA/ Mataya-Taya/ TST/ web/ Maricopa/</span></div>
+      <div class="tb-line" style="margin-top:0.3rem;"><span class="tb-prompt">~/ishmael $</span><span class="tb-cmd">&nbsp;status --open-to</span></div>
+      <div class="tb-line"><span class="tb-out" style="color:var(--tan);">internships · collabs · projects</span></div>
+      <div class="tb-line" style="margin-top:0.3rem;"><span class="tb-prompt">~/ishmael $</span><span class="tb-cur"></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>// ishmael_santiago · portfolio · 2026</p>
+  <p>built with HTML · CSS · JS · <span class="accent">✦</span></p>
+</footer>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08 });
+reveals.forEach(r => io.observe(r));
+
+const nav = document.getElementById('mainNav');
+const navToggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelectorAll('.nav-links a');
+if (navToggle) {
+  navToggle.addEventListener('click', () => {
+    const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+    nav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', String(!expanded));
+  });
+}
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    nav.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  });
+});
+</script>
+</body>
+</html>
