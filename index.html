@@ -1,994 +1,421 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Ishmael Santiago — Portfolio</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#050806">
+<title>Ishmael Santiago | BSIT Student &amp; Toyota Valenzuela OJT</title>
+<meta name="description" content="Portfolio of Ishmael Luis C. Santiago, BS Information Technology student at Pamantasan ng Lungsod ng Valenzuela: OJT experience, projects, and certifications.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root {
-  --tan:        #93917C;
-  --tan-light:  #b5b3a0;
-  --tan-pale:   #d6d4c5;
-  --tan-wash:   #edebd9;
-  --tan-paper:  #f5f3e8;
-  --tan-cream:  #faf9f3;
-  --forest:     #004225;
-  --forest-mid: #003a1f;
-  --forest-deep:#002a16;
-  --forest-text:#e8f5ee;
-  --forest-dim: #c6e8d4;
-  --ink:        #1c1b15;
-  --ink2:       #2e2d25;
-  --ink-mid:    #4a4940;
-  --ink-light:  #7a7869;
-  --rule:       #cbc9b5;
-  --rule-light: #dedad0;
-}
+:root{--paper:#080c09;--wash:#0c120e;--cream:#111a14;--ink:#ebe9dc;--mid:#a7ada3;--tan:#8f9482;--tan-soft:#4d5549;--rule:#222f27;--forest:#004225;--forest-deep:#002a16;--mint:#bfe3cf;--brass:#d4a93a;--red:#eb0a1e;--head:'Barlow Condensed','Arial Narrow',Impact,sans-serif;--serif:var(--head);--mono:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;--sans:'Inter',system-ui,sans-serif;--cut:polygon(0 0,calc(100% - 18px) 0,100% 18px,100% 100%,0 100%)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:20px}
+body{font-family:var(--sans);font-size:.95rem;line-height:1.7;background:var(--paper);color:var(--ink);overflow-x:hidden}
+a{color:inherit}:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+img{max-width:100%;height:auto;display:block}
+h1,h2,h3,h4,.timeline b,.flow b,.dec b,.bn{font-family:var(--head);font-weight:700;text-transform:uppercase;letter-spacing:.02em;line-height:1}
+.meta,.role,.chip,.btn,.wk,.links a,.leg,.navtag,.eyebrow,.facts dt,.facts span:first-child,.row span:first-child{font-family:var(--mono)}
+main,footer{margin-left:240px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 2.5rem}
+section{padding:5.5rem 0;border-top:1px solid var(--rule)}.alt{background:var(--wash)}
+main{counter-reset:s}section:not(#home){counter-increment:s}
+.sec-title{font-size:clamp(2.6rem,5vw,4rem);margin-bottom:.8rem}
+.sec-title::before{content:"0" counter(s) " /";display:block;font-family:var(--mono);font-size:.78rem;letter-spacing:.2em;color:var(--brass);margin-bottom:.8rem;font-weight:400}
+.sec-sub{color:var(--mid);max-width:62ch;margin-bottom:2.5rem}
+h3{font-size:1.7rem;margin-bottom:.4rem}
+/* sidebar */
+nav{position:fixed;top:0;left:0;bottom:0;width:240px;z-index:50;background:#050806;border-right:1px solid var(--rule)}
+.nav-in{height:100%;display:flex;flex-direction:column;padding:2.2rem 1.6rem}
+.logo{font-family:var(--head);font-size:2.1rem;font-weight:800;text-transform:uppercase;text-decoration:none;line-height:.95;letter-spacing:.02em;margin-bottom:2.5rem}
+.logo::first-line{color:var(--brass)}
+.links{list-style:none;display:flex;flex-direction:column;gap:.2rem}
+.links a{display:block;text-decoration:none;color:var(--mid);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;padding:.55rem 0 .55rem .9rem;border-left:2px solid var(--rule)}
+.links a:hover{color:var(--ink);border-left-color:var(--brass)}
+.navtag{margin-top:auto;font-size:.7rem;letter-spacing:.1em;color:var(--tan);text-transform:uppercase;border-top:1px solid var(--rule);padding-top:1rem}
+.navtag i{display:inline-block;width:8px;height:8px;background:var(--red);margin-right:.5rem}
+.burger{display:none;background:none;border:1px solid var(--rule);padding:.45rem .7rem;font:inherit;font-size:.78rem;color:var(--ink);cursor:pointer}
+/* buttons */
+.btn{display:inline-block;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;padding:.85rem 1.5rem;text-decoration:none;border:1px solid var(--brass);cursor:pointer}
+.btn-f{background:var(--brass);color:#120d00;font-weight:500}.btn-f:hover{background:#e8c25a}
+.btn-g{color:var(--ink);border-color:var(--tan-soft);background:transparent}.btn-g:hover{border-color:var(--brass);color:var(--brass)}
+.btns{display:flex;gap:.8rem;flex-wrap:wrap}
+/* hero */
+#home{padding:4.5rem 0 3.5rem;border-top:0;background:radial-gradient(circle at 80% 30%,rgba(0,66,37,.55),transparent 55%),linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px) 0 0/100% 56px,var(--paper)}
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:3rem;align-items:center}
+.role{color:var(--brass);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:1.2rem}
+.hero h1{font-size:clamp(3.2rem,6.4vw,6rem);font-weight:800;line-height:.88;margin-bottom:1.4rem}
+.hero h1 em{display:block;font-style:normal;color:transparent;-webkit-text-stroke:2px var(--brass)}
+.lead{font-size:1.1rem;color:var(--mid);max-width:36em;margin-bottom:1.6rem}
+.term{margin:0 0 1.8rem;max-width:34em;background:#050806;border:1px solid var(--rule);border-left:3px solid var(--brass);padding:1rem 1.3rem;font-family:var(--mono);font-size:.78rem;line-height:1.9;color:var(--mint)}
+.term i{color:var(--brass);font-style:normal;margin-right:.6rem}
+.cur{display:inline-block;width:8px;height:1em;background:var(--brass);vertical-align:text-bottom;animation:bl 1s step-end infinite}@keyframes bl{50%{opacity:0}}
+.pic{position:relative;justify-self:center;width:min(100%,440px)}
+.pic img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 62%;clip-path:polygon(0 0,calc(100% - 46px) 0,100% 46px,100% 100%,46px 100%,0 calc(100% - 46px));filter:contrast(1.04)}
+.pic::before{content:"";position:absolute;inset:-14px 14px 14px -14px;border:2px solid var(--brass);clip-path:polygon(0 0,calc(100% - 46px) 0,100% 46px,100% 100%,46px 100%,0 calc(100% - 46px));z-index:-1}
+.plate{position:absolute;left:-1.4rem;bottom:2.2rem;background:var(--ink);color:#0a0f0c;font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;padding:.55rem 1rem .55rem 1.1rem;border-left:6px solid var(--red)}
+.pic .t2{position:absolute;top:1.2rem;right:-.6rem;background:var(--forest);color:var(--mint);font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;padding:.4rem .8rem;border:1px solid var(--brass)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:4rem;border:1px solid var(--rule);background:var(--cream)}
+.stats>div{padding:1.3rem 1.5rem;border-right:1px solid var(--rule);font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--tan)}.stats>div:last-child{border:0}
+.stats b{display:block;font-family:var(--head);font-size:3.2rem;font-weight:700;color:var(--brass);line-height:1}
+.marq{overflow:hidden;background:var(--brass);color:#120d00;padding:.75rem 0;white-space:nowrap}
+.mt{display:inline-block;animation:mq 32s linear infinite;font-family:var(--head);font-weight:700;font-size:1.25rem;text-transform:uppercase;letter-spacing:.06em}.mt span{margin:0 1.2rem}.mt span::after{content:"/";margin-left:2.4rem;color:#7a5d00}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* toyota */
+#toyota{padding:0;border-top:0}
+.tvimg{position:relative;height:min(46vw,440px);overflow:hidden}.tvimg img{width:100%;height:100%;object-fit:cover;object-position:center 40%}
+.tvimg::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#080c09 4%,rgba(8,12,9,.35) 55%,rgba(8,12,9,.15))}
+.tvt{position:absolute;left:0;right:0;bottom:2rem;z-index:2}
+.eyebrow{display:inline-block;background:var(--red);color:#fff;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;padding:.3rem .8rem;margin-bottom:.8rem}
+.tvt h2{font-size:clamp(3rem,7vw,5.6rem);font-weight:800;line-height:.9}.tvt h2 span{color:var(--red)}
+.tvb{display:grid;grid-template-columns:1.2fr 1fr;gap:3rem;padding:2rem 0 4.5rem}
+.tvb p{color:var(--mid)}
+.spec{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--rule);background:var(--cream)}
+.spec div{padding:.9rem 1.1rem;border-bottom:1px solid var(--rule);border-right:1px solid var(--rule)}.spec div:nth-child(2n){border-right:0}
+.spec dt{font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--tan)}.spec dd{font-family:var(--head);font-size:1.35rem;font-weight:600;letter-spacing:.02em;line-height:1.15}
+/* about */
+.about{display:grid;grid-template-columns:1fr 1.2fr;gap:3.5rem}.about p{margin-bottom:1rem;color:var(--mid)}
+.pf{position:relative;margin:0 0 1.8rem;width:min(100%,300px)}.pf::before{content:"";position:absolute;inset:14px -14px -14px 14px;border:2px solid var(--brass)}
+.pf img{position:relative;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 30%;filter:grayscale(.15) contrast(1.05)}
+.facts{margin-top:1.5rem;border-top:1px solid var(--rule)}.facts div{display:flex;gap:1rem;padding:.7rem 0;border-bottom:1px solid var(--rule)}.facts dt{width:110px;flex-shrink:0;color:var(--tan);font-size:.76rem;text-transform:uppercase}
+.skill-grid{display:grid;gap:1.4rem}.skill-grid h3{font-family:var(--mono);font-size:.76rem;letter-spacing:.16em;color:var(--brass);margin-bottom:.6rem}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;list-style:none}.tags li{font-family:var(--mono);font-size:.74rem;padding:.25rem .7rem;border:1px solid var(--tan-soft);background:var(--cream);color:var(--ink)}
+.tags.dark li{border-color:var(--brass);color:var(--brass);background:transparent}
+/* cards */
+.card,.col,.cert,.proj,.jp,.dec div,.note{background:var(--cream);border:1px solid var(--rule)}
+.card,.col,.cert{clip-path:var(--cut)}
+.card{padding:2rem}.col{padding:1.6rem;border-top:4px solid var(--brass)}.col:nth-child(2){border-top-color:#2fa56a}.col:nth-child(3){border-top-color:var(--red)}
+.ojt-head{display:grid;grid-template-columns:1.3fr 1fr;gap:2.5rem;margin-bottom:2.5rem;border-left:4px solid var(--red)}
+.meta{color:var(--tan);font-size:.74rem;letter-spacing:.04em;margin-bottom:.8rem}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:2.5rem}
+ul.pts{margin:.6rem 0 0 1.1rem;color:var(--mid)}ul.pts li{margin-bottom:.45rem}
+.hours{display:flex;align-items:center;gap:1rem;margin:0 0 2rem;font-family:var(--mono);font-size:.8rem;color:var(--brass)}
+.bar{flex:1;height:10px;background:var(--rule)}.bar i{display:block;height:100%;width:100%;background:linear-gradient(90deg,var(--forest),var(--brass));transform-origin:left}
+.js .bar i{transform:scaleX(0);transition:transform 1.6s ease}.js .bar.go i{transform:none}
+.timeline{list-style:none;border-left:2px solid var(--brass);margin:1rem 0 2.5rem 6px;padding-left:1.6rem}
+.timeline li{position:relative;margin-bottom:1.4rem}.timeline li::before{content:"";position:absolute;left:calc(-1.6rem - 7px);top:.4rem;width:12px;height:12px;background:var(--paper);border:2px solid var(--brass);transform:rotate(45deg)}
+.timeline b{font-size:1.5rem;display:block}.timeline span{color:var(--tan);font-family:var(--mono);font-size:.74rem}.timeline p{color:var(--mid);max-width:70ch}
+.reel{display:flex;justify-content:space-between;align-items:center;gap:2rem;padding:2rem;background:var(--forest);border:1px solid var(--brass);color:var(--mint);text-decoration:none;margin-bottom:2.5rem}.reel:hover{background:var(--forest-deep)}
+.reel h3{color:#fff;font-size:2rem}.reel .play{flex-shrink:0;width:64px;height:64px;border:1px solid var(--brass);display:grid;place-items:center;color:var(--brass)}.reel svg{width:26px;height:26px}
+.reflect{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.reflect blockquote{font-size:1.15rem;line-height:1.6;border-left:3px solid var(--brass);padding:.2rem 0 .2rem 1.2rem;color:var(--ink)}
+.reflect h4{font-family:var(--mono);font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);font-weight:500;margin-bottom:.6rem}
+/* ojt extras */
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 1.6rem}
+.chip{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;padding:.4rem 1rem;border:1px solid var(--tan-soft);background:transparent;color:var(--mid);cursor:pointer}.chip[aria-pressed=true]{background:var(--brass);border-color:var(--brass);color:#120d00}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1rem 0 2.5rem}
+.shot{display:flex;flex-direction:column;position:relative;padding:0;border:1px solid var(--rule);background:var(--cream);cursor:zoom-in;overflow:hidden;text-align:left;font:inherit;color:inherit}
+.shot img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:center 30%;transition:transform .5s,filter .5s;filter:saturate(.9)}.shot:hover img{transform:scale(1.05);filter:none}
+.shot.wide{grid-column:span 2}.shot.wide img,.shot.w3 img{aspect-ratio:16/8}.shot.w3{grid-column:span 2}.shot.fill img{aspect-ratio:auto;flex:1;min-height:180px;height:0}
+.shot span{display:block;padding:.7rem .9rem;font-family:var(--mono);font-size:.72rem;color:var(--mid);border-top:2px solid var(--c,var(--brass))}
+dialog{border:1px solid var(--brass);background:var(--cream);color:var(--ink);max-width:min(92vw,900px);max-height:92vh;padding:1rem;margin:auto}dialog::backdrop{background:rgba(0,0,0,.88)}dialog img{max-height:72vh;margin:0 auto;width:auto}dialog p{margin:.7rem 0;font-size:.85rem}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:1rem 0 2.5rem;list-style:none;counter-reset:f;border:1px solid var(--rule)}
+.flow li{counter-increment:f;padding:1.3rem;background:var(--cream);border-right:1px solid var(--rule);color:var(--mid);font-size:.85rem}.flow li:last-child{border:0}
+.flow li::before{content:"0" counter(f);display:block;font-family:var(--head);font-size:3rem;line-height:1;color:var(--brass);font-weight:700}
+.flow b{font-size:1.6rem;display:block;color:var(--ink)}
+.dec{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin:1rem 0 .8rem}.dec div{padding:1.1rem;border-top:4px solid var(--c);color:var(--mid);font-size:.85rem}
+.dec b{font-size:2.8rem;color:var(--c);display:block}.dec small{display:block;font-family:var(--mono);font-size:.7rem;color:var(--ink);margin:.3rem 0 .4rem}
+.jr{display:grid;grid-template-columns:repeat(auto-fill,minmax(66px,1fr));gap:.45rem;margin:1rem 0}
+.wk{font-size:.72rem;padding:.7rem .2rem;border:1px solid var(--c);color:var(--ink);cursor:pointer;background:transparent}.wk:hover{background:rgba(255,255,255,.06)}
+.wk[aria-pressed=true]{background:var(--c);color:#07120c;font-weight:500}
+.jp{border-left:6px solid var(--c,var(--brass));padding:1.4rem 1.6rem;margin-bottom:.8rem;min-height:140px}.jp h4{font-size:1.9rem}
+.leg{display:flex;flex-wrap:wrap;gap:1rem;font-size:.72rem;margin-bottom:1.5rem;color:var(--mid)}.leg i{display:inline-block;width:11px;height:11px;margin-right:.4rem;vertical-align:-1px}
+/* projects */
+.proj{display:grid;grid-template-columns:320px 1fr;margin-bottom:1.2rem;border-left:4px solid var(--brass);clip-path:var(--cut)}
+.proj img{width:100%;height:100%;min-height:200px;object-fit:cover;border-right:1px solid var(--rule)}
+.proj-b{padding:1.7rem 2rem}.proj h3{font-size:2rem;margin:.1rem 0 .6rem}.proj p{color:var(--mid);margin:.7rem 0}.proj .btn{padding:.5rem 1rem;margin-top:.3rem}
+.certs{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.cert{display:flex;flex-direction:column;gap:.4rem;padding:1.6rem;text-decoration:none;border-top:4px solid var(--brass)}.cert:nth-child(2){border-top-color:#2fa56a}.cert:nth-child(3){border-top-color:var(--red)}.cert:hover{background:#16211a}
+.cert h3{font-size:1.6rem}.cert .meta{margin:0}.cert u{color:var(--brass);margin-top:auto;padding-top:.8rem;text-underline-offset:4px;font-family:var(--mono);font-size:.76rem}
+.contact{display:grid;grid-template-columns:1.1fr 1fr;gap:3.5rem}
+.row{display:flex;gap:1.2rem;padding:1rem 0;border-bottom:1px solid var(--rule);text-decoration:none}.row:first-of-type{border-top:1px solid var(--rule)}
+.row span:first-child{width:80px;flex-shrink:0;color:var(--tan);font-size:.76rem;text-transform:uppercase}.row:hover span:last-child{color:var(--brass);text-decoration:underline}
+.note{padding:1.6rem;border-color:var(--brass);font-size:.82rem;color:var(--mid)}.note h3{color:var(--ink);font-size:1.6rem}
+footer{background:#050806;border-top:1px solid var(--rule);color:var(--tan);padding:1.4rem 0;font-family:var(--mono);font-size:.72rem}footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.rulebar{background:linear-gradient(135deg,var(--forest-deep),var(--forest));border-top:0;padding:4.5rem 0;position:relative}
+.rulebar::before{content:"";position:absolute;left:0;top:0;bottom:0;width:10px;background:var(--red)}
+.eyebrow2{font-family:var(--mono);font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brass);margin-bottom:1rem}
+.rulebar blockquote{font-family:var(--head);font-weight:800;text-transform:uppercase;font-size:clamp(2.2rem,5vw,4.2rem);line-height:1;max-width:20ch;color:#fff}
+.rsub{color:var(--mint);max-width:56ch;margin-top:1.4rem}
+.wlog{list-style:none;position:relative;margin:0 0 2.5rem;border-left:2px solid var(--brass)}
+.wlog li{position:relative;display:grid;grid-template-columns:150px 1fr;gap:1.5rem;padding:1.2rem 0 1.2rem 1.8rem;border-bottom:1px solid var(--rule)}
+.wlog li::before{content:"";position:absolute;left:-8px;top:1.55rem;width:14px;height:14px;background:var(--c);border:2px solid var(--paper);transform:rotate(45deg)}
+.wd b{display:block;font-family:var(--head);font-size:1.9rem;color:var(--c);line-height:1}.wd span{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;color:var(--tan);text-transform:uppercase}
+.wlog h4{font-size:1.5rem;margin-bottom:.3rem}.wlog p{color:var(--mid);max-width:70ch}
+@media(max-width:960px){.wlog li{grid-template-columns:1fr;gap:.4rem}}
 
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
+.hide{display:none!important}
+@media(max-width:960px){main,footer{margin-left:0}main{padding-top:56px}
+nav{bottom:auto;width:auto;right:0;border-right:0;border-bottom:1px solid var(--rule)}.nav-in{flex-direction:row;align-items:center;justify-content:space-between;height:56px;padding:0 1.25rem}.logo{margin:0;font-size:1.5rem;line-height:1}.logo::first-line{color:inherit}.navtag{display:none}
+.burger{display:block}.links{display:none}nav.open .links{display:flex;position:absolute;top:56px;left:0;right:0;background:#050806;padding:.5rem 1.25rem;border-bottom:1px solid var(--rule)}
+.wrap{padding:0 1.25rem}section{padding:3.5rem 0}.hero,.about,.ojt-head,.cols,.reflect,.contact,.certs,.tvb{grid-template-columns:1fr}
+.pic{order:-1;width:min(82%,340px)}.stats,.flow,.dec{grid-template-columns:1fr 1fr}.stats>div:nth-child(2){border-right:0}.stats>div{border-bottom:1px solid var(--rule)}
+.gallery{grid-template-columns:1fr 1fr}.shot.w3{grid-column:auto}.shot.w3 img{aspect-ratio:4/3}.proj{grid-template-columns:1fr}.proj img{height:210px;border-right:0}.reel{flex-direction:column;align-items:flex-start}.tvimg{height:300px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.mt{animation:none}}
 
-body {
-  font-family: 'DM Mono', monospace;
-  background: var(--tan-paper);
-  color: var(--ink);
-  overflow-x: hidden;
-}
-
-/* subtle paper grain */
-body::after {
-  content:'';
-  position:fixed;
-  inset:0;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
-  opacity:0.03;
-  pointer-events:none;
-  z-index:9999;
-}
-
-/* ─── NAV ─── */
-nav {
-  position:fixed;
-  top:0;left:0;right:0;
-  z-index:1000;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:1rem 3rem;
-  background:rgba(245,243,232,0.93);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--rule);
-}
-.nav-logo {
-  font-family:'Cormorant Garamond',serif;
-  font-size:1.05rem;
-  font-weight:500;
-  letter-spacing:0.06em;
-  color:var(--ink);
-}
-.nav-logo em {
-  font-style:italic;
-  font-weight:300;
-  color:var(--tan);
-}
-.nav-links{display:flex;gap:2.5rem;list-style:none;}
-.nav-links a {
-  font-size:0.6rem;
-  color:var(--tan);
-  text-decoration:none;
-  letter-spacing:0.18em;
-  text-transform:uppercase;
-  transition:color 0.2s;
-}
-.nav-links a:hover{color:var(--forest);}
-.nav-toggle{
-  display:none;
-  border:none;background:transparent;
-  cursor:pointer;flex-direction:column;gap:5px;padding:4px;
-}
-.nav-toggle span{
-  display:block;width:22px;height:1px;
-  background:var(--ink);
-  transition:transform 0.2s,opacity 0.2s;
-}
-nav.open .nav-toggle span:nth-child(1){transform:translateY(6px) rotate(45deg);}
-nav.open .nav-toggle span:nth-child(2){opacity:0;}
-nav.open .nav-toggle span:nth-child(3){transform:translateY(-6px) rotate(-45deg);}
-
-/* ─── HERO ─── */
-#hero {
-  min-height:100vh;
-  padding-top:62px;
-  background:var(--tan-paper);
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  overflow:hidden;
-  position:relative;
-}
-
-.hero-top {
-  padding:3.5rem 3rem 0;
-  display:flex;
-  align-items:flex-start;
-  justify-content:space-between;
-  gap:2rem;
-}
-
-.hero-left{flex:1;}
-
-.hero-eyebrow {
-  display:flex;
-  align-items:center;
-  gap:0.8rem;
-  margin-bottom:1.8rem;
-}
-.eyebrow-line{width:32px;height:1px;background:var(--tan);}
-.eyebrow-text{
-  font-size:0.6rem;
-  color:var(--tan);
-  letter-spacing:0.2em;
-  text-transform:uppercase;
-}
-
-.hero-name {
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(4.5rem,8.5vw,9.5rem);
-  font-weight:300;
-  line-height:0.88;
-  letter-spacing:-0.025em;
-}
-.hero-name .row{display:flex;align-items:baseline;gap:0.3em;}
-.hero-name em{font-style:italic;color:var(--tan);}
-
-/* photo beside name */
-.hero-photo-wrap {
-  flex-shrink:0;
-  width:clamp(160px,18vw,240px);
-  margin-top:0.5rem;
-  position:relative;
-}
-.hero-photo-frame {
-  position:relative;
-  width:100%;
-}
-.hero-photo-frame::before {
-  content:'';
-  position:absolute;
-  top:-8px;left:-8px;right:8px;bottom:8px;
-  border:1px solid var(--tan-pale);
-  z-index:0;
-}
-.hero-photo-frame img {
-  display:block;
-  width:100%;
-  aspect-ratio:3/4;
-  object-fit:cover;
-  object-position:top center;
-  position:relative;
-  z-index:1;
-  filter:sepia(8%) contrast(1.02);
-}
-.hero-photo-label {
-  font-size:0.55rem;
-  color:var(--tan-light);
-  letter-spacing:0.15em;
-  text-transform:uppercase;
-  margin-top:0.6rem;
-  text-align:right;
-}
-
-/* hero middle strip — forest block */
-.hero-forest-strip {
-  background:var(--forest);
-  padding:1.5rem 3rem;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:2rem;
-  margin-top:2.5rem;
-}
-.hero-role {
-  font-size:0.65rem;
-  color:var(--forest-dim);
-  letter-spacing:0.18em;
-  text-transform:uppercase;
-}
-.hero-stats{display:flex;gap:3rem;}
-.hero-stat .val {
-  font-family:'Cormorant Garamond',serif;
-  font-size:2.2rem;
-  font-weight:400;
-  color:var(--tan-wash);
-  line-height:1;
-  display:block;
-}
-.hero-stat .lbl {
-  font-size:0.55rem;
-  color:var(--forest-dim);
-  letter-spacing:0.12em;
-  text-transform:uppercase;
-  display:block;
-  margin-top:0.15rem;
-}
-
-/* hero bottom */
-.hero-bottom {
-  padding:2rem 3rem 3.5rem;
-  display:flex;
-  align-items:flex-end;
-  justify-content:space-between;
-  gap:2rem;
-  border-top:1px solid var(--rule);
-  flex-wrap:wrap;
-}
-.hero-bio {
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(1.1rem,1.8vw,1.45rem);
-  font-weight:300;
-  font-style:italic;
-  color:var(--ink-mid);
-  max-width:500px;
-  line-height:1.65;
-}
-.hero-ctas{display:flex;gap:0.8rem;flex-wrap:wrap;align-items:center;}
-.btn{
-  font-family:'DM Mono',monospace;
-  font-size:0.6rem;
-  letter-spacing:0.15em;
-  text-transform:uppercase;
-  padding:0.75rem 1.8rem;
-  text-decoration:none;
-  display:inline-flex;
-  align-items:center;
-  gap:0.4rem;
-  transition:all 0.2s;
-  cursor:pointer;
-}
-.btn-forest{background:var(--forest);color:var(--forest-text);border:1px solid var(--forest);}
-.btn-forest:hover{background:var(--forest-mid);}
-.btn-ghost{background:transparent;color:var(--tan);border:1px solid var(--rule);}
-.btn-ghost:hover{border-color:var(--tan);color:var(--ink);}
-
-/* ─── SECTION BASE ─── */
-section{padding:5.5rem 3rem;border-top:1px solid var(--rule);}
-
-.sec-header{
-  display:flex;align-items:baseline;gap:1rem;
-  margin-bottom:4rem;
-}
-.sec-num{font-size:0.58rem;color:var(--tan-light);letter-spacing:0.15em;}
-.sec-line{flex:1;height:1px;background:var(--rule-light);}
-.sec-title{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(2rem,3.5vw,3rem);
-  font-weight:300;letter-spacing:-0.01em;
-}
-.sec-title em{font-style:italic;color:var(--tan);}
-
-/* ─── ABOUT ─── */
-#about{background:var(--tan-paper);}
-
-.about-statement{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(1.5rem,2.8vw,2.1rem);
-  font-weight:300;
-  line-height:1.55;
-  color:var(--ink2);
-  max-width:880px;
-  border-left:2px solid var(--tan);
-  padding-left:2rem;
-  margin-bottom:4rem;
-}
-.about-statement em{font-style:italic;color:var(--tan-light);
-}
-
-/* forest block inside about */
-.about-forest {
-  background:var(--forest);
-  padding:3rem;
-  margin-bottom:3rem;
-  display:grid;
-  grid-template-columns:1.2fr 1fr;
-  gap:3rem;
-}
-.about-forest-label{
-  font-size:0.58rem;
-  color:var(--forest-dim);
-  letter-spacing:0.18em;
-  text-transform:uppercase;
-  margin-bottom:1.5rem;
-}
-.progress-row{margin-bottom:1.1rem;}
-.progress-label{
-  display:flex;justify-content:space-between;
-  font-size:0.6rem;color:var(--forest-dim);
-  letter-spacing:0.06em;margin-bottom:0.4rem;
-}
-.progress-label span{color:var(--tan-pale);}
-.progress-bar{height:1px;background:rgba(255,255,255,0.12);position:relative;}
-.progress-fill{
-  height:100%;background:var(--tan);
-  position:relative;
-}
-.progress-fill::after{
-  content:'';position:absolute;right:0;top:-2.5px;
-  width:5px;height:5px;border-radius:50%;
-  background:var(--tan);
-}
-.skills-right{}
-.skill-group{margin-bottom:1.6rem;}
-.skill-group-label{
-  font-size:0.55rem;color:var(--forest-dim);
-  letter-spacing:0.16em;text-transform:uppercase;
-  margin-bottom:0.6rem;
-}
-.skill-tags{display:flex;flex-wrap:wrap;gap:0.35rem;}
-.tag{
-  font-size:0.58rem;
-  padding:0.2rem 0.55rem;
-  letter-spacing:0.04em;
-}
-.tag-forest{border:1px solid rgba(255,255,255,0.15);color:var(--forest-dim);background:rgba(255,255,255,0.05);}
-.tag-tan{border:1px solid var(--tan);color:var(--tan-wash);background:transparent;}
-.tag-outline{border:1px solid var(--rule);color:var(--ink-mid);background:transparent;}
-
-/* education strip */
-.edu-strip{
-  display:flex;align-items:center;gap:2rem;
-  padding:1.5rem 0;border-top:1px solid var(--rule);
-  border-bottom:1px solid var(--rule);
-}
-.edu-label{font-size:0.58rem;color:var(--tan-light);letter-spacing:0.14em;text-transform:uppercase;width:80px;flex-shrink:0;}
-.edu-val{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:400;color:var(--ink2);line-height:1.5;}
-
-/* ─── PROJECTS ─── */
-#projects{background:var(--tan-wash);}
-.projects-list{display:flex;flex-direction:column;gap:1px;}
-
-.project-row{
-  display:grid;
-  grid-template-columns:280px 1fr;
-  background:var(--tan-paper);
-  border:1px solid var(--rule);
-  transition:border-color 0.25s;
-  position:relative;
-  overflow:hidden;
-}
-.project-row::before{
-  content:'';
-  position:absolute;
-  left:0;top:0;bottom:0;width:2px;
-  background:var(--forest);
-  transform:scaleY(0);
-  transition:transform 0.3s;
-  transform-origin:bottom;
-}
-.project-row:hover{border-color:var(--tan);}
-.project-row:hover::before{transform:scaleY(1);}
-.project-row:hover .proj-img{transform:scale(1.03);}
-
-.proj-img-wrap{
-  overflow:hidden;
-  border-right:1px solid var(--rule);
-}
-.proj-img{
-  width:100%;height:100%;
-  object-fit:cover;display:block;
-  transition:transform 0.4s ease;
-  filter:sepia(5%);
-}
-
-.proj-info{
-  padding:2rem 2.5rem;
-  display:flex;flex-direction:column;
-  justify-content:space-between;gap:1rem;
-}
-.proj-num{font-size:0.55rem;color:var(--tan-light);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.5rem;}
-.proj-name{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(1.3rem,2vw,1.8rem);
-  font-weight:400;color:var(--ink);
-  margin-bottom:0.7rem;line-height:1.2;
-}
-.proj-tags{display:flex;flex-wrap:wrap;gap:0.3rem;margin-bottom:0.8rem;}
-.proj-desc{
-  font-family:'Cormorant Garamond',serif;
-  font-size:1rem;font-weight:300;
-  color:var(--ink-mid);line-height:1.8;
-}
-.proj-link{
-  font-size:0.58rem;color:var(--forest);
-  text-decoration:none;letter-spacing:0.12em;
-  text-transform:uppercase;
-  border:1px solid var(--forest);
-  padding:0.4rem 1rem;
-  display:inline-flex;align-items:center;gap:0.35rem;
-  width:fit-content;transition:background 0.15s,color 0.15s;
-  margin-top:0.5rem;
-}
-.proj-link:hover{background:var(--forest);color:var(--forest-text);}
-
-/* ─── REEL ─── */
-#reel{background:var(--forest);border-top:none;}
-#reel .sec-title{color:var(--tan-wash);}
-#reel .sec-title em{color:var(--tan);}
-#reel .sec-num{color:rgba(147,145,124,0.5);}
-#reel .sec-line{background:rgba(255,255,255,0.08);}
-
-.reel-card{
-  display:flex;align-items:center;justify-content:space-between;gap:2rem;
-  padding:2.5rem 3rem;
-  border:1px solid rgba(255,255,255,0.1);
-  text-decoration:none;color:inherit;
-  transition:border-color 0.25s,background 0.25s;
-  max-width:860px;
-}
-.reel-card:hover{border-color:var(--tan);background:rgba(255,255,255,0.03);}
-.reel-eyebrow{
-  font-size:0.58rem;color:var(--tan);
-  letter-spacing:0.18em;text-transform:uppercase;
-  display:flex;align-items:center;gap:0.5rem;margin-bottom:0.75rem;
-}
-.reel-dot{width:6px;height:6px;border-radius:50%;background:var(--tan-pale);animation:pulse 2s ease infinite;}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
-.reel-title{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(1.6rem,2.8vw,2.2rem);
-  font-weight:300;color:var(--tan-wash);
-  line-height:1.2;margin-bottom:0.6rem;
-}
-.reel-desc{font-size:0.72rem;color:var(--forest-dim);line-height:1.9;}
-.reel-icon{
-  width:72px;height:72px;
-  border:1px solid rgba(255,255,255,0.12);
-  display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;color:var(--tan);
-  transition:background 0.2s,border-color 0.2s;
-}
-.reel-card:hover .reel-icon{background:var(--tan);color:var(--forest);}
-.reel-icon svg{width:28px;height:28px;}
-
-/* ─── CERTIFICATIONS ─── */
-#certifications{background:var(--tan-paper);}
-.cert-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:0;border:1px solid var(--rule);
-}
-.cert-card{
-  background:transparent;padding:2.5rem 2rem;
-  text-decoration:none;
-  display:flex;flex-direction:column;gap:0.9rem;
-  border-right:1px solid var(--rule);
-  transition:background 0.2s;position:relative;overflow:hidden;
-}
-.cert-card:last-child{border-right:none;}
-.cert-card::before{
-  content:'';position:absolute;
-  bottom:0;left:0;right:0;height:2px;
-  background:var(--forest);
-  transform:scaleX(0);transition:transform 0.3s;transform-origin:left;
-}
-.cert-card:hover{background:var(--tan-wash);}
-.cert-card:hover::before{transform:scaleX(1);}
-.cert-id{font-size:0.55rem;color:var(--tan-light);letter-spacing:0.12em;}
-.cert-icon-wrap{
-  width:38px;height:38px;
-  border:1px solid var(--rule);
-  display:flex;align-items:center;justify-content:center;
-  color:var(--forest);
-}
-.cert-name{
-  font-family:'Cormorant Garamond',serif;
-  font-size:1.05rem;font-weight:400;
-  color:var(--ink);line-height:1.35;
-}
-.cert-issuer{font-size:0.55rem;color:var(--tan-light);letter-spacing:0.1em;text-transform:uppercase;}
-.cert-badge{
-  font-size:0.58rem;color:var(--forest);
-  letter-spacing:0.1em;text-transform:uppercase;
-  margin-top:auto;display:flex;align-items:center;gap:0.3rem;
-}
-.cert-badge::before{content:'→';}
-
-/* ─── CONNECT ─── */
-#connect{background:var(--tan-wash);}
-.connect-layout{
-  display:grid;grid-template-columns:1.1fr 1fr;
-  gap:5rem;align-items:start;
-}
-.connect-lead{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(1.2rem,1.8vw,1.6rem);
-  font-weight:300;font-style:italic;
-  color:var(--ink2);line-height:1.65;margin-bottom:2.5rem;
-}
-.connect-item{
-  display:flex;align-items:center;gap:1.5rem;
-  padding:1rem 0;border-bottom:1px solid var(--rule-light);
-  text-decoration:none;transition:all 0.2s;
-}
-.connect-item:first-of-type{border-top:1px solid var(--rule-light);}
-.connect-item:hover .ci-val{color:var(--forest);}
-.connect-item:hover .ci-arrow{transform:translateX(4px);}
-.ci-key{font-size:0.57rem;color:var(--tan);letter-spacing:0.12em;text-transform:uppercase;width:75px;flex-shrink:0;}
-.ci-val{font-size:0.75rem;color:var(--ink-mid);flex:1;transition:color 0.2s;}
-.ci-arrow{color:var(--tan-light);transition:transform 0.2s;font-size:0.75rem;}
-
-/* terminal — forest bg */
-.terminal-block{
-  background:var(--forest-deep);
-  padding:2rem;
-  font-size:0.67rem;line-height:2.2;
-  color:var(--tan-wash);
-}
-.tb-line{display:flex;gap:0.5rem;}
-.tb-prompt{color:var(--tan);flex-shrink:0;}
-.tb-cmd{color:var(--tan-cream);}
-.tb-out{color:var(--forest-dim);padding-left:1rem;}
-.tb-cur{
-  display:inline-block;width:7px;height:13px;
-  background:var(--tan);
-  animation:blink 1s step-end infinite;
-  vertical-align:middle;margin-left:2px;
-}
-@keyframes blink{50%{opacity:0;}}
-
-/* ─── FOOTER ─── */
-footer{
-  background:var(--forest);
-  border-top:none;
-  padding:1.4rem 3rem;
-  display:flex;align-items:center;justify-content:space-between;
-}
-footer p{font-size:0.58rem;color:var(--forest-dim);letter-spacing:0.1em;}
-footer .accent{color:var(--tan);}
-
-/* ─── REVEAL ─── */
-.reveal{opacity:0;transform:translateY(16px);transition:opacity 0.6s ease,transform 0.6s ease;}
-.reveal.visible{opacity:1;transform:none;}
-
-/* ─── RESPONSIVE ─── */
-@media(max-width:900px){
-  nav{padding:1rem 1.5rem;}
-  .nav-links{display:none;}
-  .nav-toggle{display:flex;}
-  nav.open .nav-links{
-    display:flex;flex-direction:column;gap:0;
-    position:absolute;top:100%;right:1.5rem;
-    background:var(--tan-cream);border:1px solid var(--rule);
-    padding:0.5rem 0;min-width:160px;
-  }
-  nav.open .nav-links a{padding:0.75rem 1.25rem;display:block;border-bottom:1px solid var(--rule-light);}
-  nav.open .nav-links a:last-child{border-bottom:none;}
-  #hero{padding-top:58px;}
-  .hero-top{flex-direction:column;padding:2.5rem 1.5rem 0;}
-  .hero-photo-wrap{width:140px;align-self:flex-end;}
-  .hero-name{font-size:clamp(3rem,10vw,5rem);}
-  .hero-forest-strip{padding:1.2rem 1.5rem;flex-wrap:wrap;}
-  .hero-stats{gap:1.5rem;}
-  .hero-bottom{padding:1.5rem 1.5rem 3rem;flex-direction:column;align-items:flex-start;}
-  section{padding:3.5rem 1.5rem;}
-  .about-forest{padding:2rem 1.5rem;grid-template-columns:1fr;}
-  .project-row{grid-template-columns:1fr;}
-  .proj-img-wrap{height:200px;border-right:none;border-bottom:1px solid var(--rule);}
-  .cert-grid{grid-template-columns:1fr;}
-  .cert-card{border-right:none;border-bottom:1px solid var(--rule);}
-  .cert-card:last-child{border-bottom:none;}
-  .connect-layout{grid-template-columns:1fr;gap:2.5rem;}
-  footer{padding:1rem 1.5rem;flex-direction:column;gap:0.5rem;text-align:center;}
-  .reel-card{padding:1.5rem;}
-  .about-statement{padding-left:1rem;}
-  .edu-strip{flex-direction:column;align-items:flex-start;gap:0.4rem;}
-}
+h1,h2,h3,h4,.row span,.meta,.cert,.proj-b,.col,.card{overflow-wrap:anywhere}
+nav{overflow-y:auto}
+.sec-title{font-size:clamp(1.9rem,6vw,4rem)}.tvt h2{font-size:clamp(2.2rem,7vw,5.6rem)}
+.cols,.certs,.dec{grid-template-columns:repeat(3,minmax(0,1fr))}.dec{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(min-width:1700px){.wrap{max-width:1280px}html{font-size:17px}}
+@media(max-width:1180px){.cols,.certs{grid-template-columns:repeat(2,minmax(0,1fr))}.dec{grid-template-columns:repeat(2,minmax(0,1fr))}.flow{grid-template-columns:repeat(2,minmax(0,1fr))}.flow li:nth-child(2){border-right:0}.flow li{border-bottom:1px solid var(--rule)}.proj{grid-template-columns:240px minmax(0,1fr)}}
+@media(max-width:960px){.hero,.about,.ojt-head,.cols,.reflect,.contact,.certs,.tvb,.proj{grid-template-columns:minmax(0,1fr)}.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.shot.wide{grid-column:span 2}
+html{scroll-padding-top:70px}nav{overflow:visible}nav.open .links{max-height:calc(100vh - 56px);overflow-y:auto}.plate{left:0}.pic .t2{right:0}.pf{margin-right:14px}.links a{padding:.85rem 0 .85rem .9rem}.hero h1{font-size:clamp(2.8rem,13vw,5rem)}.spec dd{font-size:1.15rem}}
+@media(max-width:560px){.gallery{grid-template-columns:minmax(0,1fr)}.shot.wide,.shot.w3{grid-column:auto}.shot.wide img,.shot.w3 img{aspect-ratio:4/3}.shot.fill img{aspect-ratio:4/3;flex:none;height:auto;min-height:0}
+.flow,.dec,.cols,.certs,.spec{grid-template-columns:minmax(0,1fr)}.flow li{border-right:0}.spec div{border-right:0}.stats{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.stats b{font-size:2.4rem}.stats>div{padding:1rem}
+.tvimg{height:240px}.rulebar{padding:3rem 0}.card,.col,.cert,.proj-b{padding:1.2rem}.btn{width:100%;text-align:center}.btns{flex-direction:column}.facts div{flex-direction:column;gap:.1rem}.term{font-size:.7rem;padding:.8rem}.reel{padding:1.3rem}.wd b{font-size:1.6rem}}
+@media(max-height:520px) and (min-width:961px){.nav-in{padding:1rem 1.2rem}.logo{margin-bottom:1rem}.navtag{display:none}}
 </style>
 </head>
 <body>
+<nav id="nav"><div class="wrap nav-in">
+<a class="logo" href="#home">Ishmael Santiago</a>
+<button class="burger" aria-expanded="false" aria-controls="menu">Menu</button>
+<ul class="links" id="menu">
+<li><a href="#home">Home</a></li><li><a href="#toyota">Toyota</a></li><li><a href="#about">About</a></li><li><a href="#ojt">OJT Experience</a></li><li><a href="#projects">Projects</a></li><li><a href="#certs">Certifications</a></li><li><a href="#contact">Contact</a></li>
+</ul><p class="navtag"><i></i>OJT · Toyota Valenzuela</p></div></nav>
 
-<!-- NAV -->
-<nav id="mainNav">
-  <div class="nav-logo">Ishmael <em>Santiago</em></div>
-  <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#reel">Reel</a></li>
-    <li><a href="#certifications">Certs</a></li>
-    <li><a href="#connect">Connect</a></li>
-  </ul>
-</nav>
+<main>
+<section id="home"><div class="wrap">
+<div class="hero">
+<div>
+<p class="role">BS IT student · <span id="typed">Project Manager</span><span class="cur"></span></p>
+<h1>Ishmael <em>Luis C.</em> Santiago</h1>
+<p class="lead">I am an IT student who builds software and keeps business systems accurate. My OJT combined SAP record auditing with hands-on IT support and internal tool development.</p>
+<div class="term" aria-hidden="true"><div><i>$</i>whoami</div><div><i>&gt;</i>ishmael_santiago, IT student, Valenzuela City</div><div><i>$</i>ls ./skills</div><div><i>&gt;</i>networking · ocr · web · project-mgmt · sap</div></div>
+<div class="btns">
+<a class="btn btn-f" href="Ishmael_Santiago_Resume.docx" download>Download resume</a>
+<a class="btn btn-g" href="#ojt">See my OJT experience</a>
+<a class="btn btn-g" href="#contact">Contact me</a>
+</div></div>
+<figure class="pic"><img src="images/ish-home.jpg" alt="Portrait of Ishmael Santiago in a dark room, adjusting his collar" width="1000" height="1333"><figcaption class="plate">OJT INTERN · TOYOTA VALENZUELA</figcaption><span class="t2">BSIT · PLV</span></figure></div>
+<div class="stats">
+<div><b data-n="486">486</b>OJT hours completed</div><div><b data-n="6">6</b>Projects built</div><div><b data-n="3">3</b>Cisco certifications</div><div><b data-n="2">2</b>Internal IT tools supported</div>
+</div></div></section>
+<section id="rule" class="rulebar"><div class="wrap"><p class="eyebrow2">The rule I work by</p><blockquote>No record gets filed until it agrees with its supporting document.</blockquote><p class="rsub">That one habit carried me through SAP encoding, bank and BRP audits, and every internal tool I helped finish at Toyota Valenzuela.</p></div></section>
+<section id="toyota"><div class="tvimg"><img src="images/toyota-valenzuela-building.jpg" alt="Front of the Toyota Valenzuela dealership with its red facade and Toyota logo" width="910" height="425"><div class="tvt"><div class="wrap"><span class="eyebrow">My OJT company</span><h2>Toyota <span>Valenzuela</span></h2></div></div></div>
+<div class="wrap"><div class="tvb"><div><p>I spent my 486-hour practicum inside one of Toyota's 3S dealerships (Sales, Service, Spare Parts) in Valenzuela City. Every day I worked with the same real systems the dealership runs on: SAP, structured audit trails, and the office network that keeps it moving.</p><p style="margin-top:1rem">Two departments, one internship: the IT Finance Department for record auditing, and the IT Department for hardware, networking, and internal tools.</p></div>
+<dl class="spec"><div><dt>Company</dt><dd>Toyota Valenzuela Inc.</dd></div><div><dt>Location</dt><dd>457 MacArthur Highway</dd></div><div><dt>Training</dt><dd>Jun 29 – Nov 5, 2026</dd></div><div><dt>Hours</dt><dd>486 completed</dd></div><div><dt>Schedule</dt><dd>Mon–Sat, 8:30–5:30</dd></div><div><dt>Supervisor</dt><dd>Ms. Genelyn Palima</dd></div></dl></div></div></section>
 
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-top">
-    <div class="hero-left">
-      <div class="hero-eyebrow">
-        <div class="eyebrow-line"></div>
-        <span class="eyebrow-text">PLV · BS Information Technology · 3rd Year · Valenzuela City, PH · 2026</span>
-      </div>
-      <h1 class="hero-name">
-        <span class="row">Ishmael</span>
-        <span class="row"><em>Luis C.</em></span>
-        <span class="row">Santiago</span>
-      </h1>
-    </div>
-    <div class="hero-photo-wrap">
-      <div class="hero-photo-frame">
-        <img src="ish.jpg" alt="Ishmael Santiago" />
-      </div>
-      <p class="hero-photo-label">Ishmael L.C. Santiago</p>
-    </div>
-  </div>
+<section id="about" class="alt"><div class="wrap">
+<h2 class="sec-title">About me</h2>
+<p class="sec-sub">Career objective: to grow as an IT professional in systems development, IT support, and project coordination, where documentation and accuracy matter as much as code.</p>
+<div class="about">
+<div>
+<figure class="pf"><img src="images/ish-about.jpg" alt="Ishmael Santiago standing in a cafe, looking to the side" width="720" height="1280" loading="lazy"></figure>
+<p>I am a BSIT student at Pamantasan ng Lungsod ng Valenzuela. My coursework and projects cover web and mobile development, OCR-based verification, and game development, and my OJT showed me how enterprise systems run a real business.</p>
+<p>I lead teams as a technical lead and project manager, and I follow one rule on every task: check the work against its source before calling it done.</p>
+<dl class="facts">
+<div><dt>School</dt><dd>Pamantasan ng Lungsod ng Valenzuela</dd></div>
+<div><dt>Program</dt><dd>BS Information Technology, 2023 to present</dd></div>
+<div><dt>Senior high</dt><dd>St. Louis College Valenzuela, STEM, 2021 to 2023</dd></div>
+<div><dt>Location</dt><dd>Valenzuela City, Philippines</dd></div>
+</dl></div>
+<div class="skill-grid">
+<div><h3>Systems and tools</h3><ul class="tags"><li>SAP</li><li>Microsoft Excel</li><li>Hardware support</li><li>Windows troubleshooting</li><li>IP address management</li><li>Network configuration</li><li>Cisco Packet Tracer</li><li>Canva</li></ul></div>
+<div><h3>Development</h3><ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Java</li><li>Flutter</li><li>Dart</li><li>Supabase</li><li>OpenCV</li><li>Tesseract OCR</li><li>ML Kit</li><li>Fuzzy matching</li></ul></div>
+<div><h3>Professional competencies</h3><ul class="tags"><li>Project management</li><li>IT strategy</li><li>Data analysis</li><li>Technical documentation</li><li>Record auditing</li><li>Cross-department communication</li><li>Time management</li></ul></div>
+</div></div></div></section>
 
-  <div class="hero-forest-strip">
-    <div class="hero-role">IT Student · Project Manager · Strategic Planner</div>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <span class="val">6+</span>
-        <span class="lbl">Projects</span>
-      </div>
-      <div class="hero-stat">
-        <span class="val">3</span>
-        <span class="lbl">Cisco Certs</span>
-      </div>
-      <div class="hero-stat">
-        <span class="val">2</span>
-        <span class="lbl">Lead Roles</span>
-      </div>
-    </div>
-  </div>
+<section id="ojt"><div class="wrap">
+<h2 class="sec-title">OJT experience</h2>
+<p class="sec-sub">My on-the-job training for the BSIT practicum, split between a finance team and the IT team.</p>
+<div class="ojt-head card">
+<div>
+<h3>IT Finance and IT Department intern</h3>
+<p class="meta">Toyota Valenzuela Inc. · June 29 to November 5, 2026 · Monday to Saturday</p>
+<p>Toyota Valenzuela Inc. is a 3S (Sales, Service, Spare Parts) Toyota dealership in Valenzuela City, opened in 2019. I handled records and IT tasks for the IT Finance Department and supported the IT Department as needed.</p>
+</div>
+<div>
+<h3>Tools and systems used</h3>
+<ul class="tags"><li>SAP</li><li>SAP ticketing</li><li>Microsoft Excel</li><li>Windows</li><li>IP and network configuration</li><li>Canva</li></ul>
+</div></div>
 
-  <div class="hero-bottom">
-    <p class="hero-bio">Business-minded 3rd-year IT student engaged in technology, project leadership, and strategic planning. Builds experience in financial literacy, sales, and marketing while contributing to digital solutions that encourage efficiency, innovation, and measurable progress.</p>
-    <div class="hero-ctas">
-      <a href="#projects" class="btn btn-forest">View Projects →</a>
-      <a href="https://www.linkedin.com/in/ishmael-santiago-b09516411/" target="_blank" class="btn btn-ghost">LinkedIn ↗</a>
-    </div>
-  </div>
-</section>
+<div class="hours"><b>486 of 486 hours</b><div class="bar"><i></i></div></div>
+<h3 style="font-size:1.7rem">A look at my workdays</h3>
+<p class="sec-sub" style="margin-bottom:1rem">Select a photo to enlarge it. Company screens and ID cards are blurred for confidentiality.</p>
+<div class="gallery">
+<button class="shot wide" style="--c:#e5384a" data-cap="With my department team at Toyota Valenzuela. Employee ID cards are blurred."><img src="images/ojt-team-department.jpg" alt="Ishmael with the Toyota Valenzuela department team in front of the restrooms hallway" loading="lazy" width="1280" height="720"><span>With my department team</span></button>
+<button class="shot fill" style="--c:#f5b301" data-cap="Certificates of completion after 486 training hours, with our site supervisor."><img src="images/ojt-certificate-completion.jpg" alt="Ishmael and a fellow intern holding their OJT certificates of completion beside their supervisor under the Toyota sign" loading="lazy" width="1200" height="1200"><span>Certificates of completion</span></button>
+<button class="shot " style="--c:#2fa56a" data-cap="Bank auditing at my workstation. The screen is blurred."><img src="images/ojt-bank-audit-desk.jpg" alt="Ishmael at his desk giving a thumbs up beside a blurred monitor" loading="lazy" width="1280" height="960"><span>Bank auditing at my desk</span></button>
+<button class="shot " style="--c:#2aa7bd" data-cap="Crimping a network cable for an office setup."><img src="images/ojt-cable-crimping.jpg" alt="Ishmael crimping a blue network cable" loading="lazy" width="961" height="1280"><span>Crimping a network cable</span></button>
+<button class="shot " style="--c:#e5384a" data-cap="Designing a promotional brochure for car accessories."><img src="images/ojt-promo-brochure.jpg" alt="Ishmael beside a laptop showing an Alphard accessories brochure design" loading="lazy" width="1280" height="960"><span>Designing a promo brochure</span></button>
+<button class="shot fill" style="--c:#9a6fe0" data-cap="Organizing digital files and records. The screen is blurred."><img src="images/ojt-digital-records.jpg" alt="Ishmael giving a thumbs up beside a blurred monitor showing folders" loading="lazy" width="1280" height="721"><span>Organizing digital records</span></button>
+<button class="shot w3" style="--c:#2fa56a" data-cap="Working between SAP and Excel. The screen is blurred."><img src="images/ojt-sap-excel-desk.jpg" alt="Ishmael smiling beside a blurred monitor showing SAP and Excel" loading="lazy" width="1280" height="960"><span>Between SAP and Excel</span></button>
+</div>
+<dialog id="lb"><img alt=""><p></p><button class="btn btn-g" id="lbx">Close</button></dialog>
+<div class="cols">
+<div class="col"><h3>IT Finance Department</h3><ul class="pts">
+<li>Encoded business repair records into SAP.</li>
+<li>Audited records against receipts, vouchers, and deposit slips, then filed the completed audits.</li>
+<li>Processed and tracked service requests through SAP ticketing.</li>
+<li>Scanned and organized documents for digital filing.</li></ul></div>
+<div class="col"><h3>IT Department</h3><ul class="pts">
+<li>Optimized Windows systems and resolved basic hardware and software issues.</li>
+<li>Helped manage IP addresses and configure office network settings.</li>
+<li>Crimped cables, managed wiring, and helped relocate office PCs.</li>
+<li>Counted hardware and peripherals for the asset inventory.</li></ul></div>
+<div class="col"><h3>Skills developed</h3><ul class="pts">
+<li>Enterprise systems: SAP and structured record keeping.</li>
+<li>Networking and troubleshooting in a working office.</li>
+<li>Documentation, testing, and release checks for internal tools.</li>
+<li>Communication across departments.</li></ul></div>
+</div>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="sec-header reveal">
-    <span class="sec-num">01</span>
-    <div class="sec-line"></div>
-    <h2 class="sec-title">About <em>&amp;</em> Skills</h2>
-  </div>
+<h3 style="font-size:1.7rem">My audit routine</h3>
+<p class="sec-sub" style="margin-bottom:0">Four moves, repeated on every record from August to my last day. The rule: nothing gets filed until it agrees with its supporting document.</p>
+<ol class="flow"><li><b>Read</b>Go through every detail of the record.</li><li><b>Match</b>Compare it with receipts, vouchers, and slips.</li><li><b>Mark</b>Flag anything incomplete or doubtful.</li><li><b>File</b>Classify it and file the finished audit.</li></ol>
 
-  <p class="about-statement reveal">
-    3rd-year IT student with a sharp foundation in <em>business strategy and financial literacy</em> — translating data into decisions, markets into opportunities, and plans into measurable growth. I bridge the gap between technology and business by applying strategic planning, financial analysis, and revenue-focused thinking to every project I lead.
-  </p>
+<h3 style="font-size:1.7rem">The paperwork alphabet</h3>
+<div class="dec"><div style="--c:#2aa7bd"><b>BRP</b><small>Bank Reconciliation Program</small>Encoded into SAP, then audited and filed.</div><div style="--c:#e5384a"><b>OR</b><small>Official Receipt</small>Audited, stamped, and filed.</div><div style="--c:#9a6fe0"><b>PR</b><small>Purchase Receipt</small>Audited and monitored for filing.</div><div style="--c:#e3b341"><b>CR</b><small>Collection Receipt</small>Audited and filed.</div></div>
+<p class="meta" style="margin-bottom:2.5rem">Also handled: CS# records, MIRO documents, USP records, VPD labels, deposit slips, and petty cash replenishment forms.</p>
 
-  <!-- forest block: proficiency + skills -->
-  <div class="about-forest reveal">
-    <div>
-      <div class="about-forest-label">Proficiency</div>
-      <div class="progress-row">
-        <div class="progress-label">Strategic Thinking <span>92%</span></div>
-        <div class="progress-bar"><div class="progress-fill" style="width:92%"></div></div>
-      </div>
-      <div class="progress-row">
-        <div class="progress-label">Business Process Improvement <span>88%</span></div>
-        <div class="progress-bar"><div class="progress-fill" style="width:88%"></div></div>
-      </div>
-      <div class="progress-row">
-        <div class="progress-label">Financial Analysis <span>84%</span></div>
-        <div class="progress-bar"><div class="progress-fill" style="width:84%"></div></div>
-      </div>
-      <div class="progress-row">
-        <div class="progress-label">Marketing Strategy <span>82%</span></div>
-        <div class="progress-bar"><div class="progress-fill" style="width:82%"></div></div>
-      </div>
-      <div class="progress-row">
-        <div class="progress-label">New Business Development <span>78%</span></div>
-        <div class="progress-bar"><div class="progress-fill" style="width:78%"></div></div>
-      </div>
-    </div>
-    <div class="skills-right">
-      <div class="skill-group">
-        <div class="skill-group-label">Strategy</div>
-        <div class="skill-tags">
-          <span class="tag tag-tan">Strategic Planning</span>
-          <span class="tag tag-tan">IT Strategy</span>
-          <span class="tag tag-tan">Strategic Thinking</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-label">Business &amp; Growth</div>
-        <div class="skill-tags">
-          <span class="tag tag-forest">Business Process Improvement</span>
-          <span class="tag tag-forest">New Business Development</span>
-          <span class="tag tag-forest">Business Sales</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-label">Finance &amp; Marketing</div>
-        <div class="skill-tags">
-          <span class="tag tag-forest">Financial Analysis</span>
-          <span class="tag tag-forest">Marketing Strategy</span>
-          <span class="tag tag-forest">Marketing</span>
-        </div>
-      </div>
-    </div>
-  </div>
+<h3 style="font-size:1.7rem">Week by week</h3>
+<p class="sec-sub" style="margin-bottom:1rem">My practicum log, from the first day to my last. Dot colors show the main focus of each week.</p>
+<div class="leg"><span><i style="background:#2aa7bd"></i>IT and network</span><span><i style="background:#2fa56a"></i>Finance audit</span><span><i style="background:#e5384a"></i>Design</span><span><i style="background:#f5b301"></i>Internal apps</span><span><i style="background:#9a6fe0"></i>Milestone</span></div>
+<ol class="wlog">
+<li style="--c:#2aa7bd"><div class="wd"><b>WK 04</b><span>Jun 29 – Jul 4</span></div><div><h4>Getting started</h4><p>Printed labels, filed finance documents, optimized Windows performance, helped with IP address management, assisted in BRP auditing, and designed my first promotional brochures.</p></div></li>
+<li style="--c:#e5384a"><div class="wd"><b>WK 05</b><span>Jul 6 – 11</span></div><div><h4>Brochures and bank auditing</h4><p>Designed brochures for car accessories, reviewed monthly credit and debit transactions for bank auditing, and began supporting an internal inventory application through documentation and data organization.</p></div></li>
+<li style="--c:#f5b301"><div class="wd"><b>WK 06</b><span>Jul 13 – 18</span></div><div><h4>Finishing an internal app</h4><p>Completed the remaining features, updates, and final checks on a second inventory application. Attended the Toyota General Assembly on July 14, encoded BRP data in SAP, and audited petty cash forms.</p></div></li>
+<li style="--c:#2aa7bd"><div class="wd"><b>WK 07</b><span>Jul 20 – 25</span></div><div><h4>Networks and hardware</h4><p>Configured network settings, crimped cables, managed wires, counted PC hardware for inventory, helped relocate office PCs, and audited BRP and USP records.</p></div></li>
+<li style="--c:#2fa56a"><div class="wd"><b>WK 08</b><span>Jul 27 – Aug 1</span></div><div><h4>Receipts and slips</h4><p>Audited and filed OR, PR, and CR records, reviewed BRP documents for completeness, and checked CS# records and deposit slips.</p></div></li>
+<li style="--c:#2fa56a"><div class="wd"><b>WK 09</b><span>Aug 3 – 8</span></div><div><h4>Provisional receipts</h4><p>Reviewed provisional receipts, monitored insurance referrals, audited petty cash forms, and kept up BRP audits.</p></div></li>
+<li style="--c:#2fa56a"><div class="wd"><b>WK 10</b><span>Aug 10 – 15</span></div><div><h4>Spotting gaps</h4><p>Verified BRP details against supporting records, flagged information that needed another look, then classified and filed the records.</p></div></li>
+<li style="--c:#2fa56a"><div class="wd"><b>WK 11</b><span>Aug 17 – 22</span></div><div><h4>SAP ticketing</h4><p>Processed, updated, and monitored service requests in SAP ticketing and tracked OR and PR transactions.</p></div></li>
+<li style="--c:#2fa56a"><div class="wd"><b>WK 12</b><span>Aug 24 – 29</span></div><div><h4>Search and scan</h4><p>Located and scanned records for digital filing, rechecked bank transactions, and organized MIRO documents.</p></div></li>
+<li style="--c:#2fa56a"><div class="wd"><b>WK 14</b><span>Sep 7 – 12</span></div><div><h4>BRP audit cycle</h4><p>Compared recorded transactions with supporting documents, found incomplete records, and filed completed audits.</p></div></li>
+<li style="--c:#2fa56a"><div class="wd"><b>WK 15</b><span>Sep 14 – 19</span></div><div><h4>Verifying details</h4><p>Verified transaction details, flagged what needed follow-up, and arranged audits by document type.</p></div></li>
+<li style="--c:#2fa56a"><div class="wd"><b>WK 16</b><span>Sep 21 – 26</span></div><div><h4>Steady routine</h4><p>Continued the audit cycle: review, verify, note doubtful items, file.</p></div></li>
+<li style="--c:#2fa56a"><div class="wd"><b>WK 17</b><span>Sep 28 – Oct 3</span></div><div><h4>Keeping it accessible</h4><p>Kept the routine going and filed audited documents so they stayed easy to retrieve.</p></div></li>
+<li style="--c:#2fa56a"><div class="wd"><b>WK 18</b><span>Oct 5 – 10</span></div><div><h4>Classify and file</h4><p>Reviewed BRP records and filed audits by document and classification.</p></div></li>
+<li style="--c:#2fa56a"><div class="wd"><b>WK 19</b><span>Oct 12 – 17</span></div><div><h4>Flagging gaps</h4><p>Compared records with supporting documents and flagged incomplete information.</p></div></li>
+<li style="--c:#9a6fe0"><div class="wd"><b>WK 20</b><span>Oct 19 – 24</span></div><div><h4>OJT visitation</h4><p>Kept up the audit routine. On October 22, I joined the OJT visitation: a short interview with the HR representative and the OJT coordinator, plus a photo with my certificate.</p></div></li>
+<li style="--c:#2fa56a"><div class="wd"><b>WK 21</b><span>Oct 26 – 31</span></div><div><h4>Almost there</h4><p>Continued verifying transaction details and filing completed audits.</p></div></li>
+<li style="--c:#9a6fe0"><div class="wd"><b>WK 22</b><span>Nov 2 – 5</span></div><div><h4>Final week</h4><p>Wrapped up my BRP audits and completed my last day of OJT on November 5, 2026.</p></div></li>
+</ol>
 
-  <div class="edu-strip reveal">
-    <span class="edu-label">Education</span>
-    <span class="edu-val">BS Information Technology &nbsp;—&nbsp; Pamantasan ng Lungsod ng Valenzuela &nbsp;—&nbsp; 2023–Present</span>
-  </div>
-</section>
 
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="sec-header reveal">
-    <span class="sec-num">02</span>
-    <div class="sec-line"></div>
-    <h2 class="sec-title">Project <em>Registry</em></h2>
-  </div>
-  <div class="projects-list">
+<h3 style="font-size:1.7rem">Sample work and contributions</h3>
+<div class="chips" role="group" aria-label="Filter sample work"><button class="chip" aria-pressed="true" data-f="all">All</button><button class="chip" aria-pressed="false" data-f="it">IT support</button><button class="chip" aria-pressed="false" data-f="fin">IT Finance</button><button class="chip" aria-pressed="false" data-f="design">Design</button></div>
+<ol class="timeline">
+<li data-t="it"><b>Internal IT inventory applications</b><span>July 6 to 18, 2026 · IT Department</span>
+<p>I helped build one inventory application through documentation, data organization, and system tasks, then finished a second one by completing its remaining features, updates, and final checks. This was my first look at a development cycle from requirements to a finished tool. (Details are generalized for confidentiality.)</p></li>
+<li data-t="design"><b>Promotional brochure design</b><span>June 29 to July 11, 2026 · Marketing support</span>
+<p>I designed brochures for the company's car accessories to support its marketing activities.</p></li>
+<li data-t="it"><b>Network setup support</b><span>July 20 to 25, 2026 · IT Department</span>
+<p>I configured network settings on office devices and performed cable crimping and wire management for an organized, working setup.</p></li>
+<li data-t="fin"><b>Records auditing routine</b><span>August to November 2026 · IT Finance Department</span>
+<p>I settled into one routine: read the details, match them against supporting records, mark anything doubtful, then organize and file. I kept it up through my final day on November 5, 2026.</p></li>
+</ol>
 
-    <div class="project-row reveal">
-      <div class="proj-img-wrap">
-        <img src="idetect.png" alt="iDetect" class="proj-img" />
-      </div>
-      <div class="proj-info">
-        <div>
-          <div class="proj-num">Project 001 · Technical Lead · 2026</div>
-          <h3 class="proj-name">iDetect — OCR-Based ID Verification</h3>
-          <div class="proj-tags">
-            <span class="tag tag-outline" style="border-color:var(--forest);color:var(--forest);">Tesseract OCR</span>
-            <span class="tag tag-outline" style="border-color:var(--forest);color:var(--forest);">OpenCV</span>
-            <span class="tag tag-outline" style="border-color:var(--tan);color:var(--tan);">Civic Tech</span>
-            <span class="tag tag-outline">Fuzzy Matching</span>
-          </div>
-          <p class="proj-desc">Multi-portal web application detecting fraudulent Senior Citizen &amp; PWD IDs for Valenzuela City Government. Conducted stakeholder interviews with OSCA and PDAO offices.</p>
-        </div>
-      </div>
-    </div>
+<a class="reel" href="https://www.youtube.com/watch?v=p4f3US5QSdE" target="_blank" rel="noopener noreferrer">
+<div><h3>Watch my demo reel</h3><p>Opens my portfolio demo reel on YouTube in a new tab.</p></div>
+<span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 8l6 4-6 4V8z"/><rect x="2" y="4" width="20" height="16" rx="4"/></svg></span>
+</a>
 
-    <div class="project-row reveal">
-      <div class="proj-img-wrap">
-        <img src="arta.png" alt="ARTA Survey System" class="proj-img" />
-      </div>
-      <div class="proj-info">
-        <div>
-          <div class="proj-num">Project 002 · Group Project · 2025</div>
-          <h3 class="proj-name">ARTA — Customer Satisfaction Survey System</h3>
-          <div class="proj-tags">
-            <span class="tag tag-outline" style="border-color:var(--forest);color:var(--forest);">Flutter</span>
-            <span class="tag tag-outline" style="border-color:var(--forest);color:var(--forest);">Dart</span>
-            <span class="tag tag-outline" style="border-color:var(--tan);color:var(--tan);">Supabase</span>
-            <span class="tag tag-outline">Gov Civic</span>
-          </div>
-          <p class="proj-desc">Web and mobile app automating ARTA-compliant satisfaction surveys for Valenzuela City Government, streamlining feedback collection and data-driven decisions.</p>
-        </div>
-      </div>
-    </div>
+<h3 style="font-size:1.7rem;margin-bottom:1rem">Reflections</h3>
+<div class="reflect">
+<div class="card"><h4>What I learned</h4><blockquote>An application is more than its code. It needs documentation, testing, and users who are ready to use it.</blockquote><p style="margin-top:.8rem;color:var(--mid)">I used to see IT and finance as separate fields. Now I see how accurate records, clear audit trails, and well-made internal tools help a whole company decide and serve its customers.</p></div>
+<div class="card"><h4>Challenges I overcame</h4><p style="color:var(--mid)">Similar-looking document abbreviations slowed me down at first. I asked questions, compared documents side by side, and followed the department's filing system until I could tell them apart. Balancing finance and IT work taught me to handle urgent requests first and finish one task before opening the next.</p></div>
+<div class="card"><h4>Advice for future OJT students</h4><p style="color:var(--mid)">Learn the systems early and ask when you are unsure. Compare every detail with its source before you save it, keep daily notes for your reports, and volunteer for IT work when your main tasks are done.</p></div>
+<div class="card"><h4>What I will carry forward</h4><p style="color:var(--mid)">In my career I will check my work against its requirements, document what I build, and talk to the people who will actually use it.</p></div>
+</div>
+</div></section>
 
-    <div class="project-row reveal">
-      <div class="proj-img-wrap">
-        <img src="mataya.png" alt="Mataya-Taya" class="proj-img" />
-      </div>
-      <div class="proj-info">
-        <div>
-          <div class="proj-num">Project 003 · Project Manager · 2025</div>
-          <h3 class="proj-name">Mataya-Taya Spin-Off — Endless Runner</h3>
-          <div class="proj-tags">
-            <span class="tag tag-outline" style="border-color:var(--forest);color:var(--forest);">Game Dev</span>
-            <span class="tag tag-outline">Pixel Art</span>
-            <span class="tag tag-outline">Bagani Studios</span>
-            <span class="tag tag-outline" style="border-color:var(--tan);color:var(--tan);">Cross-Platform</span>
-          </div>
-          <p class="proj-desc">Nostalgic Filipino pixel-art endless runner inspired by the classic street game Taya-Taya. Oversaw cross-platform development for PC and mobile.</p>
-        </div>
-        <a href="https://maeluis.itch.io/mataya-taya-spinoff" target="_blank" class="proj-link">Play on itch.io</a>
-      </div>
-    </div>
+<section id="projects" class="alt"><div class="wrap">
+<h2 class="sec-title">Personal and academic projects</h2>
+<p class="sec-sub">Projects from my IT coursework. My role is stated on each one.</p>
 
-    <div class="project-row reveal">
-      <div class="proj-img-wrap">
-        <img src="TST.png" alt="The Smile I Didn't Mean to Show" class="proj-img" />
-      </div>
-      <div class="proj-info">
-        <div>
-          <div class="proj-num">Project 004 · Project Manager · 2025</div>
-          <h3 class="proj-name">The Smile I Didn't Mean to Show</h3>
-          <div class="proj-tags">
-            <span class="tag tag-outline" style="border-color:var(--forest);color:var(--forest);">Visual Novel</span>
-            <span class="tag tag-outline">Story Game</span>
-            <span class="tag tag-outline">Bagani Studios</span>
-          </div>
-          <p class="proj-desc">Narrative-driven immersive story game. Led project management for production pipeline and team coordination under Bagani Studios.</p>
-        </div>
-        <a href="https://maeluis.itch.io/tsidmts" target="_blank" class="proj-link">Play on itch.io</a>
-      </div>
-    </div>
+<div class="chips" role="group" aria-label="Filter projects"><button class="chip" aria-pressed="true" data-p="all">All</button><button class="chip" aria-pressed="false" data-p="web">Web and mobile</button><button class="chip" aria-pressed="false" data-p="ocr">OCR</button><button class="chip" aria-pressed="false" data-p="game">Games</button></div>
+<article class="proj" data-c="web ocr"><img src="images/idetect.jpg" alt="iDetect staff portal sign-in page" loading="lazy" width="900" height="460"><div class="proj-b">
+<p class="meta">Capstone · Technical Lead · 2026</p><h3>iDetect: OCR-based ID verification</h3>
+<ul class="tags dark"><li>Tesseract OCR</li><li>OpenCV</li><li>Fuzzy matching</li><li>Web app</li></ul>
+<p>A multi-portal web application that detects fraudulent Senior Citizen and PWD IDs for Valenzuela City Government. I led the technical work and interviewed stakeholders from the city's OSCA and PDAO offices.</p></div></article>
 
-    <div class="project-row reveal">
-      <div class="proj-img-wrap">
-        <img src="web.png" alt="Personal Portfolio" class="proj-img" />
-      </div>
-      <div class="proj-info">
-        <div>
-          <div class="proj-num">Project 005 · Individual · 2025</div>
-          <h3 class="proj-name">Personal Portfolio Website</h3>
-          <div class="proj-tags">
-            <span class="tag tag-outline" style="border-color:var(--forest);color:var(--forest);">HTML</span>
-            <span class="tag tag-outline" style="border-color:var(--forest);color:var(--forest);">CSS</span>
-            <span class="tag tag-outline" style="border-color:var(--forest);color:var(--forest);">JavaScript</span>
-          </div>
-          <p class="proj-desc">Self-designed and built personal portfolio site showcasing work history and projects.</p>
-        </div>
-      </div>
-    </div>
+<article class="proj" data-c="web"><img src="images/arta.jpg" alt="ARTA admin dashboard with satisfaction charts" loading="lazy" width="900" height="506"><div class="proj-b">
+<p class="meta">Group project · 2025</p><h3>ARTA customer satisfaction survey system</h3>
+<ul class="tags dark"><li>Flutter</li><li>Dart</li><li>Supabase</li></ul>
+<p>A web and mobile app that automates ARTA-compliant satisfaction surveys for Valenzuela City Government, with an admin dashboard that charts the survey responses.</p></div></article>
 
-    <div class="project-row reveal">
-      <div class="proj-img-wrap">
-        <img src="maricopa.png" alt="Maricopa Restaurant" class="proj-img" />
-      </div>
-      <div class="proj-info">
-        <div>
-          <div class="proj-num">Project 006 · Pair Project · 2025</div>
-          <h3 class="proj-name">Maricopa Restaurant Website</h3>
-          <div class="proj-tags">
-            <span class="tag tag-outline" style="border-color:var(--forest);color:var(--forest);">HTML</span>
-            <span class="tag tag-outline" style="border-color:var(--forest);color:var(--forest);">CSS</span>
-            <span class="tag tag-outline">Web Dev</span>
-          </div>
-          <p class="proj-desc">Restaurant website featuring menus, business information, and dining highlights for Maricopa Restaurant.</p>
-        </div>
-      </div>
-    </div>
+<article class="proj" data-c="game"><img src="images/mataya.jpg" alt="Mataya-Taya title screen with leaderboard" loading="lazy" width="754" height="432"><div class="proj-b">
+<p class="meta">Game project · Project Manager · 2025</p><h3>Mataya-Taya spin-off</h3>
+<ul class="tags dark"><li>Game development</li><li>Pixel art</li><li>PC and mobile</li></ul>
+<p>A pixel-art endless runner inspired by the Filipino street game Taya-Taya. I managed planning and cross-platform development with Bagani Studios.</p>
+<a class="btn btn-g" href="https://maeluis.itch.io/mataya-taya-spinoff" target="_blank" rel="noopener noreferrer">Play on itch.io</a></div></article>
 
-  </div>
-</section>
+<article class="proj" data-c="game"><img src="images/tst.jpg" alt="Title screen of The Smile I Didn't Mean to Show" loading="lazy" width="755" height="429"><div class="proj-b">
+<p class="meta">Game project · Project Manager · 2025</p><h3>The Smile I Didn’t Mean to Show</h3>
+<ul class="tags dark"><li>Visual novel</li><li>Narrative game</li><li>Team coordination</li></ul>
+<p>A narrative-driven story game. I managed the production pipeline and coordinated the team at Bagani Studios.</p>
+<a class="btn btn-g" href="https://maeluis.itch.io/tsidmts" target="_blank" rel="noopener noreferrer">Play on itch.io</a></div></article>
 
-<!-- REEL -->
-<section id="reel">
-  <div class="sec-header reveal">
-    <span class="sec-num">03</span>
-    <div class="sec-line"></div>
-    <h2 class="sec-title">Demo <em>Reel</em></h2>
-  </div>
-  <div class="reveal">
-    <a class="reel-card" href="https://www.youtube.com/watch?v=p4f3US5QSdE" target="_blank" rel="noopener noreferrer">
-      <div>
-        <div class="reel-eyebrow">
-          <div class="reel-dot"></div>
-          Live · ishmael_santiago_demo_reel.mp4
-        </div>
-        <h3 class="reel-title">Watch the demo reel on YouTube</h3>
-        <p class="reel-desc">Click to open the portfolio demo reel directly on YouTube.</p>
-      </div>
-      <div class="reel-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 8l6 4-6 4V8z"/><rect x="2" y="4" width="20" height="16" rx="4"/></svg>
-      </div>
-    </a>
-  </div>
-</section>
+<article class="proj" data-c="web"><img src="images/maricopa.jpg" alt="Maricopa Restaurant website home page" loading="lazy" width="895" height="501"><div class="proj-b">
+<p class="meta">Pair project · 2025</p><h3>Maricopa Restaurant website</h3>
+<ul class="tags dark"><li>HTML</li><li>CSS</li><li>Web development</li></ul>
+<p>A restaurant website with menus, business information, and dining highlights, built as a two-person school project.</p></div></article>
 
-<!-- CERTIFICATIONS -->
-<section id="certifications">
-  <div class="sec-header reveal">
-    <span class="sec-num">04</span>
-    <div class="sec-line"></div>
-    <h2 class="sec-title">Cert <em>Registry</em></h2>
-  </div>
-  <div class="cert-grid reveal">
-    <a class="cert-card" href="https://www.credly.com/badges/0e059dd4-f393-4c5e-9d4f-d2d832fd90d0" target="_blank">
-      <div class="cert-id">Cert 001 · May 07, 2025</div>
-      <div class="cert-icon-wrap">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
-      </div>
-      <div class="cert-name">Networking Basics</div>
-      <div class="cert-issuer">Cisco Networking Academy</div>
-      <div class="cert-badge">View Credly Badge</div>
-    </a>
-    <a class="cert-card" href="https://www.credly.com/badges/89b68966-ad6f-4f63-848b-6aed8388768a" target="_blank">
-      <div class="cert-id">Cert 002 · May 04, 2025</div>
-      <div class="cert-icon-wrap">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-      </div>
-      <div class="cert-name">Network Addressing &amp; Basic Troubleshooting</div>
-      <div class="cert-issuer">Cisco Networking Academy</div>
-      <div class="cert-badge">View Credly Badge</div>
-    </a>
-    <a class="cert-card" href="https://www.credly.com/badges/21cfe729-9ff0-487d-a392-5c1f85508fe6" target="_blank">
-      <div class="cert-id">Cert 003 · May 05, 2025</div>
-      <div class="cert-icon-wrap">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-      </div>
-      <div class="cert-name">Networking Devices &amp; Initial Configuration</div>
-      <div class="cert-issuer">Cisco Networking Academy</div>
-      <div class="cert-badge">View Credly Badge</div>
-    </a>
-  </div>
-</section>
+<article class="proj" data-c="web"><img src="images/web.jpg" alt="Earlier version of my personal portfolio website" loading="lazy" width="900" height="431"><div class="proj-b">
+<p class="meta">Individual project · 2025</p><h3>Personal portfolio website</h3>
+<ul class="tags dark"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+<p>My own portfolio, designed and coded from scratch. The image shows the first version. This page is the redesign.</p></div></article>
+</div></section>
 
-<!-- CONNECT -->
-<section id="connect">
-  <div class="sec-header reveal">
-    <span class="sec-num">05</span>
-    <div class="sec-line"></div>
-    <h2 class="sec-title">Connect <em>&amp;</em> Reach</h2>
-  </div>
-  <div class="connect-layout">
-    <div class="reveal">
-      <p class="connect-lead">Open to internships, collaborations, and project opportunities. Reach out through any channel below.</p>
-      <a href="https://www.linkedin.com/in/ishmael-santiago-b09516411/" target="_blank" class="connect-item">
-        <span class="ci-key">LinkedIn</span>
-        <span class="ci-val">ishmael-santiago-b09516411</span>
-        <span class="ci-arrow">→</span>
-      </a>
-      <a href="mailto:3ilcs252005@gmail.com" class="connect-item">
-        <span class="ci-key">Email</span>
-        <span class="ci-val">3ilcs252005@gmail.com</span>
-        <span class="ci-arrow">→</span>
-      </a>
-      <a href="tel:09265510920" class="connect-item">
-        <span class="ci-key">Phone</span>
-        <span class="ci-val">0926 551 0920</span>
-        <span class="ci-arrow">→</span>
-      </a>
-      <a href="https://maeluis.itch.io" target="_blank" class="connect-item">
-        <span class="ci-key">itch.io</span>
-        <span class="ci-val">maeluis.itch.io</span>
-        <span class="ci-arrow">→</span>
-      </a>
-    </div>
-    <div class="terminal-block reveal">
-      <div class="tb-line"><span class="tb-prompt">~/ishmael $</span><span class="tb-cmd">&nbsp;whoami</span></div>
-      <div class="tb-line"><span class="tb-out">ishmael_santiago · IT_student · project_manager</span></div>
-      <div class="tb-line" style="margin-top:0.3rem;"><span class="tb-prompt">~/ishmael $</span><span class="tb-cmd">&nbsp;cat location.txt</span></div>
-      <div class="tb-line"><span class="tb-out">Valenzuela City, PH · PLV BSIT 2026</span></div>
-      <div class="tb-line" style="margin-top:0.3rem;"><span class="tb-prompt">~/ishmael $</span><span class="tb-cmd">&nbsp;ls projects/</span></div>
-      <div class="tb-line"><span class="tb-out">iDetect/ ARTA/ Mataya-Taya/ TST/ web/ Maricopa/</span></div>
-      <div class="tb-line" style="margin-top:0.3rem;"><span class="tb-prompt">~/ishmael $</span><span class="tb-cmd">&nbsp;status --open-to</span></div>
-      <div class="tb-line"><span class="tb-out" style="color:var(--tan);">internships · collabs · projects</span></div>
-      <div class="tb-line" style="margin-top:0.3rem;"><span class="tb-prompt">~/ishmael $</span><span class="tb-cur"></span></div>
-    </div>
-  </div>
-</section>
+<section id="certs"><div class="wrap">
+<h2 class="sec-title">Certifications, achievements, and training</h2>
+<p class="sec-sub">Verified Cisco Networking Academy badges, each linked to its Credly page.</p>
+<div class="certs">
+<a class="cert" href="https://www.credly.com/badges/0e059dd4-f393-4c5e-9d4f-d2d832fd90d0" target="_blank" rel="noopener noreferrer"><p class="meta">Issued May 7, 2025</p><h3>Networking Basics</h3><p>Cisco Networking Academy</p><u>View badge on Credly</u></a>
+<a class="cert" href="https://www.credly.com/badges/89b68966-ad6f-4f63-848b-6aed8388768a" target="_blank" rel="noopener noreferrer"><p class="meta">Issued May 4, 2025</p><h3>Network Addressing and Basic Troubleshooting</h3><p>Cisco Networking Academy</p><u>View badge on Credly</u></a>
+<a class="cert" href="https://www.credly.com/badges/21cfe729-9ff0-487d-a392-5c1f85508fe6" target="_blank" rel="noopener noreferrer"><p class="meta">Issued May 5, 2025</p><h3>Networking Devices and Initial Configuration</h3><p>Cisco Networking Academy</p><u>View badge on Credly</u></a>
+</div>
+<div class="card" style="margin-top:1.2rem"><h3 style="font-size:1.35rem;margin-bottom:.4rem">Seminars attended</h3><p class="meta">Pamantasan ng Lungsod ng Valenzuela · PLV Auditorium · April 20, 2024</p><ul class="pts"><li>IT Developer Life Hacks: Working Smart as a Computer Programmer</li><li>Fortifying the Future: Navigating the Landscape of Cybersecurity Essentials</li><li>Unlocking Innovation: Navigating Digital Transformation in Today’s Landscape</li></ul></div>
+<div class="card" style="margin-top:1.2rem"><h3 style="font-size:1.35rem;margin-bottom:.4rem">Training and achievements</h3>
+<ul class="pts"><li>Completed 486 hours of on-the-job training (June 29 to November 5, 2026) and submitted weekly progress reports throughout.</li>
+<li>Attended the dealership's General Assembly on July 14, 2026.</li>
+<li>Served as Technical Lead for the iDetect capstone project and as Project Manager for two game projects.</li></ul></div>
+</div></section>
 
-<!-- FOOTER -->
-<footer>
-  <p>// ishmael_santiago · portfolio · 2026</p>
-  <p>built with HTML · CSS · JS · <span class="accent">✦</span></p>
-</footer>
+<section id="contact" class="alt"><div class="wrap">
+<h2 class="sec-title">Contact</h2>
+<div class="contact">
+<div>
+<p class="sec-sub">I am open to internships, collaborations, and project opportunities. Reach me through any channel below.</p>
+<a class="row" href="mailto:3ilcs252005@gmail.com"><span>Email</span><span>3ilcs252005@gmail.com</span></a>
+<a class="row" href="tel:+639265510920"><span>Phone</span><span>0926 551 0920</span></a>
+<a class="row" href="https://www.linkedin.com/in/ishmael-santiago-b09516411/" target="_blank" rel="noopener noreferrer"><span>LinkedIn</span><span>ishmael-santiago-b09516411</span></a>
+<a class="row" href="https://maeluis.itch.io" target="_blank" rel="noopener noreferrer"><span>itch.io</span><span>maeluis.itch.io</span></a>
+<a class="row" href="Ishmael_Santiago_Resume.docx" download><span>Resume</span><span>Download (Word)</span></a>
+</div>
+<aside class="note"><h3>Privacy and ethics notice</h3>
+<p>This portfolio follows the Data Privacy Act of 2012 (RA 10173) and my host company's policies. It contains no company documents, internal reports, credentials, source code, or customer data. Company screens and employee ID cards in photos are blurred. OJT work is described in general terms, and team projects state my individual role. Project screenshots contain no personal data. Fonts are provided by Google Fonts.</p></aside>
+</div></div></section>
+</main>
+
+<footer><div class="wrap"><p>© 2026 Ishmael Luis C. Santiago</p><p>BSIT, Pamantasan ng Lungsod ng Valenzuela · Built with HTML, CSS, and JavaScript</p></div></footer>
 
 <script>
-const reveals = document.querySelectorAll('.reveal');
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      io.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.08 });
-reveals.forEach(r => io.observe(r));
+var nav=document.getElementById('nav'),b=document.querySelector('.burger');
+b.addEventListener('click',function(){var o=nav.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+document.querySelectorAll('.links a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');b.setAttribute('aria-expanded','false')})});
+document.documentElement.classList.add('js');
+var rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+var roles=['Project Manager','Network tinkerer','Full-stack builder','OJT intern, Toyota Valenzuela'],ri=0,ci=0,del=false,ty=document.getElementById('typed');
+function tick(){var w=roles[ri];ci+=del?-1:1;ty.textContent=w.slice(0,ci);var d=del?35:75;if(!del&&ci==w.length){del=true;d=1400}else if(del&&ci==0){del=false;ri=(ri+1)%roles.length;d=300}setTimeout(tick,d)}
+if(!rm){ci=0;ty.textContent='';tick()}
+function filt(sel,attr,key,items,get){document.querySelectorAll(sel).forEach(function(c){c.addEventListener('click',function(){document.querySelectorAll(sel).forEach(function(x){x.setAttribute('aria-pressed',x==c)});var f=c.dataset[key];document.querySelectorAll(items).forEach(function(i){i.classList.toggle('hide',f!='all'&&get(i).split(' ').indexOf(f)<0)})})})}
+filt('[data-f]','','f','.timeline li',function(i){return i.dataset.t});
+filt('[data-p]','','p','.proj',function(i){return i.dataset.c});
+var lb=document.getElementById('lb');
+document.querySelectorAll('.shot').forEach(function(sh){sh.addEventListener('click',function(){var im=sh.querySelector('img');lb.querySelector('img').src=im.src;lb.querySelector('img').alt=im.alt;lb.querySelector('p').textContent=sh.dataset.cap;lb.showModal()})});
+document.getElementById('lbx').addEventListener('click',function(){lb.close()});
+lb.addEventListener('click',function(e){if(e.target==lb)lb.close()});
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;io.unobserve(e.target);e.target.classList.add('go')})},{threshold:.4});
+document.querySelectorAll('.bar').forEach(function(b){io.observe(b)});
+document.querySelectorAll('[data-n]').forEach(function(el){if(rm)return;var n=+el.dataset.n,t0=null;function st(t){t0=t0||t;var k=Math.min((t-t0)/1400,1);el.textContent=Math.round(n*k);if(k<1)requestAnimationFrame(st)}el.textContent=0;requestAnimationFrame(st)});
 
-const nav = document.getElementById('mainNav');
-const navToggle = document.querySelector('.nav-toggle');
-const navLinks = document.querySelectorAll('.nav-links a');
-if (navToggle) {
-  navToggle.addEventListener('click', () => {
-    const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-    nav.classList.toggle('open');
-    navToggle.setAttribute('aria-expanded', String(!expanded));
-  });
-}
-navLinks.forEach(link => {
-  link.addEventListener('click', () => {
-    nav.classList.remove('open');
-    navToggle.setAttribute('aria-expanded', 'false');
-  });
-});
+
 </script>
 </body>
 </html>
