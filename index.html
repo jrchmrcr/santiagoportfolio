@@ -132,7 +132,13 @@ dialog{border:1px solid var(--brass);background:var(--cream);color:var(--ink);ma
 .contact{display:grid;grid-template-columns:1.1fr 1fr;gap:3.5rem}
 .row{display:flex;gap:1.2rem;padding:1rem 0;border-bottom:1px solid var(--rule);text-decoration:none}.row:first-of-type{border-top:1px solid var(--rule)}
 .row span:first-child{width:80px;flex-shrink:0;color:var(--tan);font-size:.76rem;text-transform:uppercase}.row:hover span:last-child{color:var(--brass);text-decoration:underline}
-.note{padding:1.6rem;border-color:var(--brass);font-size:.82rem;color:var(--mid)}.note h3{color:var(--ink);font-size:1.6rem}
+.note{padding:1.6rem;border-color:var(--brass);font-size:.82rem;color:var(--mid)}.note h3{color:var(--ink);font-size:1.6rem;margin-bottom:.3rem}
+.note h4{color:var(--ink);font-size:1rem;margin:1rem 0 .2rem}
+.note p{margin-bottom:.3rem}
+.note a,.src a{color:var(--brass)}
+.src{margin-top:1rem;font-size:.78rem;color:var(--tan)}
+footer a{color:inherit;text-decoration:underline}
+#privacy{scroll-margin-top:80px}
 footer{background:#050806;border-top:1px solid var(--rule);color:var(--tan);padding:1.4rem 0;font-family:var(--mono);font-size:.72rem}footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 .rulebar{background:linear-gradient(135deg,var(--forest-deep),var(--forest));border-top:0;padding:4.5rem 0;position:relative}
 .rulebar::before{content:"";position:absolute;left:0;top:0;bottom:0;width:10px;background:var(--red)}
@@ -194,10 +200,10 @@ html{scroll-padding-top:70px}nav{overflow:visible}nav.open .links{max-height:cal
 <div class="stats">
 <div><b data-n="486">486</b>OJT hours completed</div><div><b data-n="6">6</b>Projects built</div><div><b data-n="3">3</b>Cisco certifications</div><div><b data-n="2">2</b>Internal IT tools supported</div>
 </div></div></section>
-<section id="rule" class="rulebar"><div class="wrap"><p class="eyebrow2">The rule I work by</p><blockquote>No record gets filed until it agrees with its supporting document.</blockquote><p class="rsub">That one habit carried me through SAP encoding, bank and BRP audits, and every internal tool I helped finish at Toyota Valenzuela.</p></div></section>
+<section id="rule" class="rulebar"><div class="wrap"><p class="eyebrow2">The rule I work by</p><blockquote>No record gets filed until it agrees with its supporting document.</blockquote><p class="rsub">That one habit carried me through SAP encoding, financial record audits, and every internal tool I helped finish at Toyota Valenzuela.</p></div></section>
 <section id="toyota"><div class="tvimg"><img src="images/toyota-valenzuela-building.jpg" alt="Front of the Toyota Valenzuela dealership with its red facade and Toyota logo" width="910" height="425"><div class="tvt"><div class="wrap"><span class="eyebrow">My OJT company</span><h2>Toyota <span>Valenzuela</span></h2></div></div></div>
-<div class="wrap"><div class="tvb"><div><p>I spent my 486-hour practicum inside one of Toyota's 3S dealerships (Sales, Service, Spare Parts) in Valenzuela City. Every day I worked with the same real systems the dealership runs on: SAP, structured audit trails, and the office network that keeps it moving.</p><p style="margin-top:1rem">Two departments, one internship: the IT Finance Department for record auditing, and the IT Department for hardware, networking, and internal tools.</p></div>
-<dl class="spec"><div><dt>Company</dt><dd>Toyota Valenzuela Inc.</dd></div><div><dt>Location</dt><dd>457 MacArthur Highway</dd></div><div><dt>Training</dt><dd>Jun 29 – Nov 5, 2026</dd></div><div><dt>Hours</dt><dd>486 completed</dd></div><div><dt>Schedule</dt><dd>Mon–Sat, 8:30–5:30</dd></div><div><dt>Supervisor</dt><dd>Ms. Genelyn Palima</dd></div></dl></div></div></section>
+<div class="wrap"><div class="tvb"><div><p>I spent my 486-hour practicum inside one of Toyota's 3S dealerships (Sales, Service, Spare Parts) in Valenzuela City. Every day I worked with the same real systems the dealership runs on: SAP, structured audit trails, and the office network that keeps it moving.</p><p style="margin-top:1rem">Two departments, one internship: the IT Finance Department for record auditing, and the IT Department for hardware, networking, and internal tools.</p><p class="src">Company background (3S format, 2019 opening, location) comes from public sources: <a href="https://motioncars.inquirer.net/?p=60435" target="_blank" rel="noopener noreferrer">Inquirer Motioncars</a> and the <a href="https://ph.jobstreet.com/companies/toyota-valenzuela-168557685679004" target="_blank" rel="noopener noreferrer">Toyota Valenzuela company profile on JobStreet</a>.</p></div>
+<dl class="spec"><div><dt>Company</dt><dd>Toyota Valenzuela Inc.</dd></div><div><dt>Location</dt><dd>457 MacArthur Highway</dd></div><div><dt>Training</dt><dd>Jun 29 – Nov 5, 2026</dd></div><div><dt>Hours</dt><dd>486 completed</dd></div><div><dt>Schedule</dt><dd>Mon–Sat, 8:30–5:30</dd></div><div><dt>Departments</dt><dd>IT Finance · IT</dd></div></dl></div></div></section>
 
 <section id="about" class="alt"><div class="wrap">
 <h2 class="sec-title">About me</h2>
@@ -268,43 +274,30 @@ html{scroll-padding-top:70px}nav{overflow:visible}nav.open .links{max-height:cal
 <p class="sec-sub" style="margin-bottom:0">Four moves, repeated on every record from August to my last day. The rule: nothing gets filed until it agrees with its supporting document.</p>
 <ol class="flow"><li><b>Read</b>Go through every detail of the record.</li><li><b>Match</b>Compare it with receipts, vouchers, and slips.</li><li><b>Mark</b>Flag anything incomplete or doubtful.</li><li><b>File</b>Classify it and file the finished audit.</li></ol>
 
-<h3 style="font-size:1.7rem">The paperwork alphabet</h3>
-<div class="dec"><div style="--c:#2aa7bd"><b>BRP</b><small>Bank Reconciliation Program</small>Encoded into SAP, then audited and filed.</div><div style="--c:#e5384a"><b>OR</b><small>Official Receipt</small>Audited, stamped, and filed.</div><div style="--c:#9a6fe0"><b>PR</b><small>Purchase Receipt</small>Audited and monitored for filing.</div><div style="--c:#e3b341"><b>CR</b><small>Collection Receipt</small>Audited and filed.</div></div>
-<p class="meta" style="margin-bottom:2.5rem">Also handled: CS# records, MIRO documents, USP records, VPD labels, deposit slips, and petty cash replenishment forms.</p>
+<h3 style="font-size:1.7rem">The kinds of paperwork</h3>
+<div class="dec"><div style="--c:#2aa7bd"><b>Bank</b><small>Transaction records</small>Compared with supporting documents, then filed.</div><div style="--c:#e5384a"><b>Receipts</b><small>Proof of payment</small>Checked for completeness, then filed.</div><div style="--c:#9a6fe0"><b>Requests</b><small>Service tickets</small>Processed and tracked in SAP ticketing.</div><div style="--c:#e3b341"><b>Forms</b><small>Internal paperwork</small>Reviewed for completeness before filing.</div></div>
+<p class="meta" style="margin-bottom:2.5rem">Record types are described in general terms. Internal codes and document formats are not published.</p>
 
-<h3 style="font-size:1.7rem">Week by week</h3>
-<p class="sec-sub" style="margin-bottom:1rem">My practicum log, from the first day to my last. Dot colors show the main focus of each week.</p>
+<h3 style="font-size:1.7rem">The practicum in phases</h3>
+<p class="sec-sub" style="margin-bottom:1rem">A general summary of my practicum, grouped into phases. Specific records and company details are left out on purpose. Dot colors show the main focus.</p>
 <div class="leg"><span><i style="background:#2aa7bd"></i>IT and network</span><span><i style="background:#2fa56a"></i>Finance audit</span><span><i style="background:#e5384a"></i>Design</span><span><i style="background:#f5b301"></i>Internal apps</span><span><i style="background:#9a6fe0"></i>Milestone</span></div>
 <ol class="wlog">
-<li style="--c:#2aa7bd"><div class="wd"><b>WK 04</b><span>Jun 29 – Jul 4</span></div><div><h4>Getting started</h4><p>Printed labels, filed finance documents, optimized Windows performance, helped with IP address management, assisted in BRP auditing, and designed my first promotional brochures.</p></div></li>
-<li style="--c:#e5384a"><div class="wd"><b>WK 05</b><span>Jul 6 – 11</span></div><div><h4>Brochures and bank auditing</h4><p>Designed brochures for car accessories, reviewed monthly credit and debit transactions for bank auditing, and began supporting an internal inventory application through documentation and data organization.</p></div></li>
-<li style="--c:#f5b301"><div class="wd"><b>WK 06</b><span>Jul 13 – 18</span></div><div><h4>Finishing an internal app</h4><p>Completed the remaining features, updates, and final checks on a second inventory application. Attended the Toyota General Assembly on July 14, encoded BRP data in SAP, and audited petty cash forms.</p></div></li>
-<li style="--c:#2aa7bd"><div class="wd"><b>WK 07</b><span>Jul 20 – 25</span></div><div><h4>Networks and hardware</h4><p>Configured network settings, crimped cables, managed wires, counted PC hardware for inventory, helped relocate office PCs, and audited BRP and USP records.</p></div></li>
-<li style="--c:#2fa56a"><div class="wd"><b>WK 08</b><span>Jul 27 – Aug 1</span></div><div><h4>Receipts and slips</h4><p>Audited and filed OR, PR, and CR records, reviewed BRP documents for completeness, and checked CS# records and deposit slips.</p></div></li>
-<li style="--c:#2fa56a"><div class="wd"><b>WK 09</b><span>Aug 3 – 8</span></div><div><h4>Provisional receipts</h4><p>Reviewed provisional receipts, monitored insurance referrals, audited petty cash forms, and kept up BRP audits.</p></div></li>
-<li style="--c:#2fa56a"><div class="wd"><b>WK 10</b><span>Aug 10 – 15</span></div><div><h4>Spotting gaps</h4><p>Verified BRP details against supporting records, flagged information that needed another look, then classified and filed the records.</p></div></li>
-<li style="--c:#2fa56a"><div class="wd"><b>WK 11</b><span>Aug 17 – 22</span></div><div><h4>SAP ticketing</h4><p>Processed, updated, and monitored service requests in SAP ticketing and tracked OR and PR transactions.</p></div></li>
-<li style="--c:#2fa56a"><div class="wd"><b>WK 12</b><span>Aug 24 – 29</span></div><div><h4>Search and scan</h4><p>Located and scanned records for digital filing, rechecked bank transactions, and organized MIRO documents.</p></div></li>
-<li style="--c:#2fa56a"><div class="wd"><b>WK 14</b><span>Sep 7 – 12</span></div><div><h4>BRP audit cycle</h4><p>Compared recorded transactions with supporting documents, found incomplete records, and filed completed audits.</p></div></li>
-<li style="--c:#2fa56a"><div class="wd"><b>WK 15</b><span>Sep 14 – 19</span></div><div><h4>Verifying details</h4><p>Verified transaction details, flagged what needed follow-up, and arranged audits by document type.</p></div></li>
-<li style="--c:#2fa56a"><div class="wd"><b>WK 16</b><span>Sep 21 – 26</span></div><div><h4>Steady routine</h4><p>Continued the audit cycle: review, verify, note doubtful items, file.</p></div></li>
-<li style="--c:#2fa56a"><div class="wd"><b>WK 17</b><span>Sep 28 – Oct 3</span></div><div><h4>Keeping it accessible</h4><p>Kept the routine going and filed audited documents so they stayed easy to retrieve.</p></div></li>
-<li style="--c:#2fa56a"><div class="wd"><b>WK 18</b><span>Oct 5 – 10</span></div><div><h4>Classify and file</h4><p>Reviewed BRP records and filed audits by document and classification.</p></div></li>
-<li style="--c:#2fa56a"><div class="wd"><b>WK 19</b><span>Oct 12 – 17</span></div><div><h4>Flagging gaps</h4><p>Compared records with supporting documents and flagged incomplete information.</p></div></li>
-<li style="--c:#9a6fe0"><div class="wd"><b>WK 20</b><span>Oct 19 – 24</span></div><div><h4>OJT visitation</h4><p>Kept up the audit routine. On October 22, I joined the OJT visitation: a short interview with the HR representative and the OJT coordinator, plus a photo with my certificate.</p></div></li>
-<li style="--c:#2fa56a"><div class="wd"><b>WK 21</b><span>Oct 26 – 31</span></div><div><h4>Almost there</h4><p>Continued verifying transaction details and filing completed audits.</p></div></li>
-<li style="--c:#9a6fe0"><div class="wd"><b>WK 22</b><span>Nov 2 – 5</span></div><div><h4>Final week</h4><p>Wrapped up my BRP audits and completed my last day of OJT on November 5, 2026.</p></div></li>
+<li style="--c:#f5b301"><div class="wd"><b>WK 04–06</b><span>Jun 29 – Jul 18</span></div><div><h4>Settling in and first tools</h4><p>I learned how the departments work, helped an internal inventory application move forward through documentation and testing, and designed promotional material for the company.</p></div></li>
+<li style="--c:#2aa7bd"><div class="wd"><b>WK 07</b><span>Jul 20 – 25</span></div><div><h4>Hands-on IT support</h4><p>I worked on office network settings, cabling and hardware inventory, and helped move office equipment into place.</p></div></li>
+<li style="--c:#2fa56a"><div class="wd"><b>WK 08–12</b><span>Jul 27 – Aug 29</span></div><div><h4>Learning the audit routine</h4><p>I moved into the finance side: checking records against their supporting documents, handling service requests in SAP ticketing, and organizing documents for digital filing.</p></div></li>
+<li style="--c:#2fa56a"><div class="wd"><b>WK 14–19</b><span>Sep 7 – Oct 17</span></div><div><h4>A steady cycle</h4><p>The routine settled into review, verify, flag anything doubtful, and file. The focus was accuracy and keeping completed work easy to find.</p></div></li>
+<li style="--c:#9a6fe0"><div class="wd"><b>WK 20–22</b><span>Oct 19 – Nov 5</span></div><div><h4>Visitation and final stretch</h4><p>I joined the OJT visitation with company and school representatives, kept up the routine, and finished the practicum on November 5, 2026.</p></div></li>
 </ol>
 
 
 <h3 style="font-size:1.7rem">Sample work and contributions</h3>
 <div class="chips" role="group" aria-label="Filter sample work"><button class="chip" aria-pressed="true" data-f="all">All</button><button class="chip" aria-pressed="false" data-f="it">IT support</button><button class="chip" aria-pressed="false" data-f="fin">IT Finance</button><button class="chip" aria-pressed="false" data-f="design">Design</button></div>
 <ol class="timeline">
-<li data-t="it"><b>Internal IT inventory applications</b><span>July 6 to 18, 2026 · IT Department</span>
+<li data-t="it"><b>Internal IT inventory applications</b><span>July 2026 · IT Department</span>
 <p>I helped build one inventory application through documentation, data organization, and system tasks, then finished a second one by completing its remaining features, updates, and final checks. This was my first look at a development cycle from requirements to a finished tool. (Details are generalized for confidentiality.)</p></li>
-<li data-t="design"><b>Promotional brochure design</b><span>June 29 to July 11, 2026 · Marketing support</span>
+<li data-t="design"><b>Promotional brochure design</b><span>July 2026 · Marketing support</span>
 <p>I designed brochures for the company's car accessories to support its marketing activities.</p></li>
-<li data-t="it"><b>Network setup support</b><span>July 20 to 25, 2026 · IT Department</span>
+<li data-t="it"><b>Network setup support</b><span>July 2026 · IT Department</span>
 <p>I configured network settings on office devices and performed cable crimping and wire management for an organized, working setup.</p></li>
 <li data-t="fin"><b>Records auditing routine</b><span>August to November 2026 · IT Finance Department</span>
 <p>I settled into one routine: read the details, match them against supporting records, mark anything doubtful, then organize and file. I kept it up through my final day on November 5, 2026.</p></li>
@@ -373,7 +366,7 @@ html{scroll-padding-top:70px}nav{overflow:visible}nav.open .links{max-height:cal
 <div class="card" style="margin-top:1.2rem"><h3 style="font-size:1.35rem;margin-bottom:.4rem">Seminars attended</h3><p class="meta">Pamantasan ng Lungsod ng Valenzuela · PLV Auditorium · April 20, 2024</p><ul class="pts"><li>IT Developer Life Hacks: Working Smart as a Computer Programmer</li><li>Fortifying the Future: Navigating the Landscape of Cybersecurity Essentials</li><li>Unlocking Innovation: Navigating Digital Transformation in Today’s Landscape</li></ul></div>
 <div class="card" style="margin-top:1.2rem"><h3 style="font-size:1.35rem;margin-bottom:.4rem">Training and achievements</h3>
 <ul class="pts"><li>Completed 486 hours of on-the-job training (June 29 to November 5, 2026) and submitted weekly progress reports throughout.</li>
-<li>Attended the dealership's General Assembly on July 14, 2026.</li>
+<li>Attended the dealership's General Assembly in July 2026.</li>
 <li>Served as Technical Lead for the iDetect capstone project and as Project Manager for two game projects.</li></ul></div>
 </div></section>
 
@@ -388,12 +381,22 @@ html{scroll-padding-top:70px}nav{overflow:visible}nav.open .links{max-height:cal
 <a class="row" href="https://maeluis.itch.io" target="_blank" rel="noopener noreferrer"><span>itch.io</span><span>maeluis.itch.io</span></a>
 <a class="row" href="Ishmael_Santiago_Resume.pdf" download><span>Resume</span><span>Download (PDF)</span></a>
 </div>
-<aside class="note"><h3>Privacy and ethics notice</h3>
-<p>This portfolio follows the Data Privacy Act of 2012 (RA 10173) and my host company's policies. It contains no company documents, internal reports, credentials, source code, or customer data. Company screens and employee ID cards in photos are blurred. OJT work is described in general terms, and team projects state my individual role. Project screenshots contain no personal data. Fonts are provided by Google Fonts.</p></aside>
+<aside class="note" id="privacy"><h3>Privacy notice</h3>
+<p>Written with the Data Privacy Act of 2012 (RA 10173) in mind. Last updated November 2026.</p>
+<h4>What this site collects</h4>
+<p>Nothing automatically. There are no forms, accounts, analytics, or cookies of my own. If you email or call me, I receive the contact details you share and use them only to reply. I do not sell or pass them on.</p>
+<h4>What I left out</h4>
+<p>Company documents, internal reports, credentials, source code, and customer or employee data. OJT work is described in general terms, and coworkers and supervisors are not named. Company screens and employee ID cards in photos are blurred.</p>
+<h4>Other people in photos</h4>
+<p>Photos that show colleagues are shared with their consent. If you appear here and want a photo changed or removed, message me and I will act on it promptly.</p>
+<h4>Third parties</h4>
+<p>Fonts load from Google Fonts, which receives your IP address when the page opens. Links to YouTube, itch.io, LinkedIn, and Credly lead to sites with their own privacy policies.</p>
+<h4>Your rights</h4>
+<p>You may ask to be informed about, access, correct, or erase your personal data, object to its use, and file a complaint with the National Privacy Commission at <a href="https://privacy.gov.ph" target="_blank" rel="noopener noreferrer">privacy.gov.ph</a>. Concerns about this site can go to <a href="mailto:3ilcs252005@gmail.com">3ilcs252005@gmail.com</a>.</p></aside>
 </div></div></section>
 </main>
 
-<footer><div class="wrap"><p>© 2026 Ishmael Luis C. Santiago</p><p>BSIT, Pamantasan ng Lungsod ng Valenzuela · Built with HTML, CSS, and JavaScript</p></div></footer>
+<footer><div class="wrap"><p>© 2026 Ishmael Luis C. Santiago</p><p>BSIT, Pamantasan ng Lungsod ng Valenzuela · <a href="#privacy">Privacy notice</a> · Built with HTML, CSS, and JavaScript</p></div></footer>
 
 <script>
 var nav=document.getElementById('nav'),b=document.querySelector('.burger');
